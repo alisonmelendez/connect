@@ -1,20 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from "react";
+import Navbar from '../Navbar/Navbar';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"; 
+import Dashboard from '../Dashboard/Dashboard';
+import Discover from '../Discover/Discover';
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/hello")
+  //     .then((r) => r.json())
+  //     .then((data) => setCount(data.count));
+  // }, []);
 
-  return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
+  return (   
+    <Router>
+    <Navbar/>
+      <Routes>
+        <Route path="/" element={<Discover/>}></Route>
+        <Route path="/dashboard" element={<Dashboard/>}></Route>
+      </Routes>
+    </Router>
   );
 }
 
