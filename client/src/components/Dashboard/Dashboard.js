@@ -1,9 +1,11 @@
 import React from 'react';
+import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 function Dashboard() {
         return (
             <>
-                <h1> Header for Dashboard </h1>
+                <h1> Dashboard </h1>
             </>
         );
 }

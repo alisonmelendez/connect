@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../Navbar/Navbar.scss'; 
 
 function Navbar(){ 
 
     return (
-        <React.Fragment>
-           <Link to="/"> Discover</Link>
-           <Link to="/dashboard"> Dashboard</Link>
-        </React.Fragment>
+        <div className="navLinks">
+            <Link className="navLink" to="/"> Discover</Link>
+            <Link className="navLink" to="/profile"> Profile</Link>
+            <Link className="navLink" to="/dashboard"> Dashboard</Link>
+        </div>
     ); 
 
 }

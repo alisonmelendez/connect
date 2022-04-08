@@ -1,8 +1,9 @@
-import './App.css';
+import './App.scss';
 import Navbar from '../Navbar/Navbar';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"; 
 import Dashboard from '../Dashboard/Dashboard';
 import Discover from '../Discover/Discover';
+import Profile from '../Profile/Profile';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Discover/>}></Route>
         <Route path="/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/profile" element={<Profile/>}></Route>
       </Routes>
     </Router>
   );
