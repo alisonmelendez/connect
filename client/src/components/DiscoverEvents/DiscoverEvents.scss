@@ -1,0 +1,28 @@
+.eventHeader{
+    background-color: red;
+    display: flex;
+    // align-items:flex-end;
+    justify-content: center;
+}
+
+.eventInfo{
+    background-color: white;
+}
+
+.plusSign{
+    background-color: yellow;
+}
+
+.eventCategoriesContainer{ //complete container 
+    width: 50%; 
+    height: 150px; 
+    background-color: blue;
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
