@@ -12,7 +12,7 @@ function EventCategories(){
           .then((data) => setCategories(data._embedded.classifications)); 
       }, []);
 
-    categories.map((category)=> console.log(category.segment.name))
+    // categories.map((category)=> console.log(category.segment.name))
 
     return (
         <>

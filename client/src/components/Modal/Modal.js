@@ -18,11 +18,10 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                 image: APIimage,
                 createdBy: createdBy
             })
+            
         })
-
-        // .then(resp => resp.json())
-        // .then(data => console.log(data))
-        // this.setState({eventName: '', date: '', time: '', description:'', image:'', createdBy:''})
+        setDescription('')
+        setcreatedBy('')
     }
 
     if(!open){
@@ -38,7 +37,6 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                         </label>
                         <input 
                             onChange={(e)=> {
-                                // console.log('event',e.target.value)
                                 setEventName(e.target.value)}} 
                             type="text" 
                             name="event" 
@@ -49,7 +47,6 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                         </label>
                         <input 
                             onChange={(e)=> {
-                                // console.log('e.target.value',e.target.value)
                                 setDate(e.target.value)}} 
                             type="text" 
                             name="date" 

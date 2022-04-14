@@ -19,9 +19,6 @@ function DiscoverEvents({eventName, setEventName,date,setDate,time,setTime,image
           .then((data) => setEvents(data._embedded.events)); 
       }, []);
 
-      // events.map((event)=>console.log(event))
-
-      // console.log(events)
 
     return (
         <>
