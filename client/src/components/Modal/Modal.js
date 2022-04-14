@@ -11,16 +11,17 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
             "Content-Type" : 'application/json',
             },
             body: JSON.stringify({
-                eventName: {eventName}, 
-                date: {date},
-                time: {time},
-                description:{description},
-                image: {image},
-                createdBy: {createdBy}
+                eventName: eventName, 
+                date: date,
+                time: time,
+                description: description,
+                image: image,
+                createdBy: createdBy
             })
         })
-        .then(resp => resp.json())
-        .then(data => console.log(data))
+
+        // .then(resp => resp.json())
+        // .then(data => console.log(data))
     }
 
     if(!open){
@@ -33,59 +34,63 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
                     <form onSubmit={handleSubmit}>
                         <label>
                             Event Name: 
-                            <input 
-                            onChange={(e)=> setEventName(e.target.value)} 
+                        </label>
+                        <input 
+                            onChange={(e)=> {
+                                // console.log('event',e.target.value)
+                                setEventName(e.target.value)}} 
                             type="text" 
                             name="event" 
-                            defaultValue="chickenpotpie"
+                            value={eventName}
                             />
-                        </label>
                         <label>
                             Date: 
-                            <input 
-                            onChange={(e)=> setDate(e.target.value)} 
+                        </label>
+                        <input 
+                            onChange={(e)=> {
+                                // console.log('e.target.value',e.target.value)
+                                setDate(e.target.value)}} 
                             type="text" 
                             name="date" 
                             value={date}
                             />
-                        </label>
                         <label>
                             Time: 
-                            <input 
+                        </label>
+                        <input 
                             onChange={(e)=> setTime(e.target.value)} 
                             type="text" 
                             name="time" 
                             value={time}
                             />
-                        </label>
                         <label>
                             Description: 
-                            <textarea 
+                        </label>
+                        <textarea 
                             onChange={(e)=> setDescription(e.target.value)} 
                             type="text" 
                             name="description" 
                             value={description}
                             />
-                        </label>
                         <label>
                             Image: 
-                            <input 
+                        </label>
+                        <input 
                             onChange={(e)=> setImage(e.target.value)} 
                             type="text" 
                             name="image" 
                             value={image}
                             />
-                        </label>
                         <label>
                             Created By: 
-                            <input 
+                        </label>
+                        <input 
                             onChange={(e)=> setcreatedBy(e.target.value)} 
                             type="text" 
                             name="creator" 
                             value={createdBy}
                             />
-                        </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" onSubmit={handleSubmit}/>
                     </form>
                     
                     <button onClick={onClose}> Close </button>

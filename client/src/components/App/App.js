@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [eventName, setEventName] = useState(""); 
+  const [eventName, setEventName] = useState(""); //set the API data name here so that it sets it as this at default? 
   const [date, setDate] = useState(""); 
   const [time, setTime] = useState(""); 
   const [image, setImage] = useState(""); 

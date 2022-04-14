@@ -7,6 +7,7 @@ class ScheduledEventsController < ApplicationController
     
     def create
         event = ScheduledEvent.create!(event_params)
+        event.save
         render json: event, status: :created  
     end
 
