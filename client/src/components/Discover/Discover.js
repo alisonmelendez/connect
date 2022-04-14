@@ -7,7 +7,7 @@ import EventCategories from '../EventCategories/EventCategories';
 function Discover({eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}) {
         return (
             <>
-                <h1>Home Page</h1>
+                <h1>Discover</h1>
                 <EventCategories/>
                 <br/>
                 <DiscoverEvents

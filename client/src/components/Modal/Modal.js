@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Modal/Modal.scss';
 
-function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy,open, onClose}) {
+function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,APIgenre,eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy, open, onClose}) {
 
     function handleSubmit(e){
         e.preventDefault();
@@ -11,17 +11,18 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
             "Content-Type" : 'application/json',
             },
             body: JSON.stringify({
-                eventName: eventName, 
-                date: date,
-                time: time,
+                eventName: APIname, 
+                date: APIdate,
+                time: APItime,
                 description: description,
-                image: image,
+                image: APIimage,
                 createdBy: createdBy
             })
         })
 
         // .then(resp => resp.json())
         // .then(data => console.log(data))
+        // this.setState({eventName: '', date: '', time: '', description:'', image:'', createdBy:''})
     }
 
     if(!open){
@@ -41,7 +42,7 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
                                 setEventName(e.target.value)}} 
                             type="text" 
                             name="event" 
-                            value={eventName}
+                            defaultValue={APIname}
                             />
                         <label>
                             Date: 
@@ -52,7 +53,7 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
                                 setDate(e.target.value)}} 
                             type="text" 
                             name="date" 
-                            value={date}
+                            defaultValue={APIdate}
                             />
                         <label>
                             Time: 
@@ -61,7 +62,7 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
                             onChange={(e)=> setTime(e.target.value)} 
                             type="text" 
                             name="time" 
-                            value={time}
+                            defaultValue={APItime}
                             />
                         <label>
                             Description: 
@@ -79,7 +80,7 @@ function Modal({ eventName, setEventName,date,setDate,time,setTime,image,setImag
                             onChange={(e)=> setImage(e.target.value)} 
                             type="text" 
                             name="image" 
-                            value={image}
+                            defaultValue={APIimage}
                             />
                         <label>
                             Created By: 

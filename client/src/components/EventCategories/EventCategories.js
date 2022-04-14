@@ -12,16 +12,20 @@ function EventCategories(){
           .then((data) => setCategories(data._embedded.classifications)); 
       }, []);
 
-    // categories.map((category)=> console.log(category.segment.name))
-
+    categories.map((category)=> console.log(category.segment.name))
 
     return (
         <>
+        
+        <label htmlFor="site-search">Category Search: </label>
+        <input type="search" id="site-search" name="q"></input>
+        <button>Search</button>
+
         {categories.map((category)=> {
             return <EventCategoriesCard
                 key={category.segment.id}
-                name={category.segment.name}
-            />})}
+                name={category.segment.name}/>})
+        }
         </>
     ); 
 
