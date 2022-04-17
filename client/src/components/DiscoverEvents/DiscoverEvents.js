@@ -3,26 +3,42 @@ import '../DiscoverEvents/DiscoverEvents.scss';
 import { useEffect } from 'react';
 import DiscoverEventsCard from '../DiscoverEventsCard/DiscoverEventsCard';
 
-function DiscoverEvents({eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
+function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
 
     const [events, setEvents] = useState([]); 
-
-    function addEvent(newEvent){
-        setEvents([...events, newEvent]); //might not be in the correct place.. needs to go with the other events on dash 
-    }
+    let [page, setPageNum] = useState(0); 
 
     useEffect(() => {
-        fetch("https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=8&page=120")
-        //need to use pagination to actually have the user be able to scroll through all of the events 
-        //currently set to only show 8 events per page and on page 120
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=10&page=${page}`)
           .then((r) => r.json())
           .then((data) => setEvents(data._embedded.events)); 
-      }, []);
+      }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
 
+    function movePageAhead(){
+        page++; 
+        setPageNum(page); 
+    }
+
+    function movePageBack(){
+        if(page > 0){
+            page--; 
+            setPageNum(page); 
+        }
+    }
+
+    
+    let filterCategories = events.filter(event => {
+        return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event });
+    
+    
 
     return (
         <>
-        {events.map((event)=>{
+        <p>Current Page Number: {page}</p>
+        <button onClick={movePageBack}>Left</button>
+        <button onClick={movePageAhead}>Right</button>
+
+        {filterCategories.map((event)=>{
         return <DiscoverEventsCard 
             //API data
             key={event.id}
@@ -50,6 +66,8 @@ function DiscoverEvents({eventName, setEventName,date,setDate,time,setTime,image
             setcreatedBy={setcreatedBy}
 
         /> })}
+
+       
         </>
     ); 
 
