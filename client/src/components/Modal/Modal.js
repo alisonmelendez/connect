@@ -1,7 +1,28 @@
 import React from 'react';
 import '../Modal/Modal.scss';
 
-function Modal({ open, onClose }) {
+function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,APIgenre,eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy, open, onClose}) {
+
+    function handleSubmit(e){
+        e.preventDefault();
+        fetch('/scheduled_events', { //fetch to the events themselves
+            method: 'POST', 
+            headers: {
+            "Content-Type" : 'application/json',
+            },
+            body: JSON.stringify({
+                eventName: APIname, 
+                date: APIdate,
+                time: APItime,
+                description: description,
+                image: APIimage,
+                createdBy: createdBy
+            })
+            
+        })
+        setDescription('')
+        setcreatedBy('')
+    }
 
     if(!open){
         return null
@@ -10,31 +31,67 @@ function Modal({ open, onClose }) {
         return (
             <div className="overlay">
                 <div className="entireModal">
-                    <p>I have stuff inside</p>
-
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <label>
-                            Event Name: <input type="text" name="name" />
+                            Event Name: 
                         </label>
+                        <input 
+                            onChange={(e)=> {
+                                setEventName(e.target.value)}} 
+                            type="text" 
+                            name="event" 
+                            defaultValue={APIname}
+                            />
                         <label>
-                            Date: <input type="text" name="name" />
+                            Date: 
                         </label>
+                        <input 
+                            onChange={(e)=> {
+                                setDate(e.target.value)}} 
+                            type="text" 
+                            name="date" 
+                            defaultValue={APIdate}
+                            />
                         <label>
-                            Time: <input type="text" name="name" />
+                            Time: 
                         </label>
+                        <input 
+                            onChange={(e)=> setTime(e.target.value)} 
+                            type="text" 
+                            name="time" 
+                            defaultValue={APItime}
+                            />
                         <label>
-                            Description: <textarea type="text" name="name" />
+                            Description: 
                         </label>
+                        <textarea 
+                            onChange={(e)=> setDescription(e.target.value)} 
+                            type="text" 
+                            name="description" 
+                            value={description}
+                            />
                         <label>
-                            Image: <input type="text" name="name" />
+                            Image: 
                         </label>
+                        <input 
+                            onChange={(e)=> setImage(e.target.value)} 
+                            type="text" 
+                            name="image" 
+                            defaultValue={APIimage}
+                            />
                         <label>
-                            Created By: <input type="text" name="name" />
+                            Created By: 
                         </label>
-                    <input type="submit" value="Submit" />
+                        <input 
+                            onChange={(e)=> setcreatedBy(e.target.value)} 
+                            type="text" 
+                            name="creator" 
+                            value={createdBy}
+                            />
+                    <input type="submit" value="Submit" onSubmit={handleSubmit}/>
                     </form>
                     
-                    <button onClick={onClose}> X </button>
+                    <button onClick={onClose}> Close </button>
                 </div>
             </div>
         );

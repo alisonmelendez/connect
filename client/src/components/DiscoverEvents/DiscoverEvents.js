@@ -1,29 +1,73 @@
 import React, { useState } from 'react';
 import '../DiscoverEvents/DiscoverEvents.scss'; 
-import Modal from '../Modal/Modal';
+import { useEffect } from 'react';
+import DiscoverEventsCard from '../DiscoverEventsCard/DiscoverEventsCard';
 
-function DiscoverEvents(){ 
+function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
 
-    const[isOpen, setIsOpen] = useState(false); 
+    const [events, setEvents] = useState([]); 
+    let [page, setPageNum] = useState(0); 
 
-    function randomFunction(){
-        //modal will pop up here as it is rendered on click of the plus sign 
-        console.log('I was clicked woo'); 
-        
+    useEffect(() => {
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=10&page=${page}`)
+          .then((r) => r.json())
+          .then((data) => setEvents(data._embedded.events)); 
+      }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
+
+    function movePageAhead(){
+        page++; 
+        setPageNum(page); 
     }
+
+    function movePageBack(){
+        if(page > 0){
+            page--; 
+            setPageNum(page); 
+        }
+    }
+
+    
+    let filterCategories = events.filter(event => {
+        return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event });
+    
+    
 
     return (
         <>
-        {/* <p>Events Categories will go here to filter them</p> */}
-        <div className="eventCategoriesContainer">
-            {/* <div className="eventInfoContainer"> */}
-                <h3 className="eventHeader">Event Title</h3>
-                <p className="eventInfo">Event Short Bio</p>
-            {/* </div>  */}
-            <button onClick={() => setIsOpen(true)}className="plusSign">+</button>
+        <p>Current Page Number: {page}</p>
+        <button onClick={movePageBack}>Left</button>
+        <button onClick={movePageAhead}>Right</button>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}/>
-        </div>
+        {filterCategories.map((event)=>{
+        return <DiscoverEventsCard 
+            //API data
+            key={event.id}
+            APIname={event.name}
+            APIurl={event.url}
+            APIimage={event.images[3].url}
+            APIdate={event.dates.start.localDate}
+            APItime={event.dates.start.localTime}
+            APIcategory={event.classifications[0].segment.name}
+            APIgenre={event.classifications[0].genre.name}
+            APIvenue={event._embedded.venues[0].name}
+            
+            // state being passed down from app 
+            eventName={eventName}
+            setEventName={setEventName}
+            date={date}
+            setDate={setDate}
+            time={time}
+            setTime={setTime}
+            image={image}
+            setImage={setImage}
+            description={description}
+            setDescription={setDescription}
+            createdBy={createdBy}
+            setcreatedBy={setcreatedBy}
+
+        /> })}
+
+       
         </>
     ); 
 

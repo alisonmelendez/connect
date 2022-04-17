@@ -1,0 +1,37 @@
+.eventCategoriesContainer {
+    background-color: rgb(194, 192, 192);
+}
+
+#eventImage{
+    width: 25%; 
+    height: 25%;
+}
+
+.eventHeader{
+    background-color: red;
+    display: flex;
+    // align-items:flex-end;
+    justify-content: center;
+}
+
+.eventInfo{
+    background-color: white;
+}
+
+.plusSign{
+    background-color: yellow;
+}
+
+.eventCategoriesContainer{ //complete container 
+    // width: 50%; 
+    // height: 150px; 
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+
+
+
