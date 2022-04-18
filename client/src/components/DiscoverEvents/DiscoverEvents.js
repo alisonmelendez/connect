@@ -3,13 +3,14 @@ import '../DiscoverEvents/DiscoverEvents.scss';
 import { useEffect } from 'react';
 import DiscoverEventsCard from '../DiscoverEventsCard/DiscoverEventsCard';
 
+
 function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
 
     const [events, setEvents] = useState([]); 
     let [page, setPageNum] = useState(0); 
 
     useEffect(() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=10&page=${page}`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=10&page=${page}&dmaId=345`)
           .then((r) => r.json())
           .then((data) => setEvents(data._embedded.events)); 
       }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)

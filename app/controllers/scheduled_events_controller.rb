@@ -6,9 +6,24 @@ class ScheduledEventsController < ApplicationController
     end
     
     def create
-        event = ScheduledEvent.create!(event_params)
-        event.save
-        render json: event, status: :created  
+        @name = params[:eventName]
+        @date = params[:date]
+        @time = params[:time]
+        @description = params[:description]
+        @image = params[:image]
+        @creator = params[:createdBy]
+        @user_id = @current_user.id
+       
+        event = ScheduledEvent.create!(
+            {eventName: @name, 
+            date: @date, 
+            time: @time, 
+            description: @description, 
+            image: @image, 
+            createdBy: @creator,
+            user_id: @user_id})
+
+            render json: event, status: :ok
     end
 
     def update
