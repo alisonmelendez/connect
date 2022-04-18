@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :scheduled_events
-  # get '/hello', to: 'application#hello_world'
+  resources :users
+  resources :scheduled_events, only: [:index, :show, :destroy, :create, :update]
 
-  #try a get "/me" 
-  #post "/scheduled_event" (name of the resource)
-  #post "/create", to: "scheduled_events#create"
+  post "/signup", to: "users#create"
+  post "/login", to: "sessions#create"
+  get "/me", to: "users#show"
+  delete "/logout", to: "sessions#destroy"
+
   get "/index", to: "scheduled_events#index"
 end

@@ -7,8 +7,12 @@ class CreateScheduledEvents < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :image
       t.string :createdBy
-  
+      t.belongs_to :user, null: false, foreign_key: true
+
       t.timestamps
     end
   end
 end
+
+
+
