@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../Landing/Landing.scss'; 
+import image from './family4.svg'; 
 
 
 function Landing() {
@@ -32,6 +34,7 @@ function Landing() {
             })
             
         })
+        alert("Account Created!");
     }
 
     function handleLogin(e){
@@ -51,112 +54,121 @@ function Landing() {
     }
         return (
             <>
-                <h1> Landing </h1>
-                <div>
-                    <p>Image to go here</p>
+                {/* <h1> Connect </h1> */}
+
+                <div className="entireLandingContainer">
+                <div className="landingImage">
+                        <h1 id="connectTitle"> Connect </h1>
+                        <img id="familyPhoto" src={image}></img>
                 </div>
 
-                <div className="loginForm">
-                    <h3>Login</h3>
+                <div className="userAccountContainer">
 
-                    <form onSubmit={handleLogin}>
+                    <div className="loginForm">
+                        <h3>Login</h3>
 
-                        <label htmlFor="userName">Email:</label>
-                        <input 
-                            onChange={(e)=> {setUsername(e.target.value)}} 
-                            type="email" 
-                            id="email" 
-                            name="email"
-                            value={username}
-                        >
-                            
-                        </input>
+                        <form onSubmit={handleLogin}>
 
-                        <label htmlFor="pwd">Password:</label>
-                        <input 
-                            onChange={(e)=> {setPassword(e.target.value)}} 
-                            type="password" 
-                            id="pwd" 
-                            name="pwd" 
-                            minLength="8"
-                            value={password}
-                        >
-                        </input>
+                                <label htmlFor="userName">Email:</label>
+                                <input 
+                                    onChange={(e)=> {setUsername(e.target.value)}} 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    value={username}
+                                >
+                                    
+                                </input>
 
-                        <button type="submit" onClick={handleLogin} > <Link to="/discover"> Login</Link></button>
-                    </form>
-                </div>
+                                <label htmlFor="pwd">Password:</label>
+                                <input 
+                                    onChange={(e)=> {setPassword(e.target.value)}} 
+                                    type="password" 
+                                    id="pwd" 
+                                    name="pwd" 
+                                    minLength="8"
+                                    value={password}
+                                >
+                                </input>
+                         
+                            <button id="loginButton" type="submit" onClick={handleLogin} > <Link to="/discover"> Login</Link></button>
+                        </form>
+                    </div>
                 
-                <div className="newUserForm">
-                    <h3>New User</h3>
-                    <p>Don't have an account yet? </p>
+                    <div className="newUserForm">
+                        <h3>New User</h3>
+                        <p>Don't have an account yet? </p>
 
-                    <form onSubmit={handleSignup}>
+                        <form onSubmit={handleSignup}>
 
-                        <label htmlFor="firstName">First Name:</label>
-                        <input 
-                            onChange={(e)=> {setCreatedFirstName(e.target.value)}} 
-                            type="text" 
-                            id="firstName" 
-                            name="firstName"
-                            value={createdFirstName}
-                        >
-                        </input>
+                            <div className="signUpFormStuff">
+                            <label htmlFor="firstName">First Name:</label>
+                            <input 
+                                onChange={(e)=> {setCreatedFirstName(e.target.value)}} 
+                                type="text" 
+                                id="firstName" 
+                                name="firstName"
+                                value={createdFirstName}
+                            >
+                            </input>
 
-                        <label htmlFor="lastName">Last Name:</label>
-                        <input
-                            onChange={(e)=> {setCreatedLastName(e.target.value)}} 
-                            type="text" 
-                            id="lastName" 
-                            name="lastName"
-                            value={createdLastName}
-                        >
-                        </input>
+                            <label htmlFor="lastName">Last Name:</label>
+                            <input
+                                onChange={(e)=> {setCreatedLastName(e.target.value)}} 
+                                type="text" 
+                                id="lastName" 
+                                name="lastName"
+                                value={createdLastName}
+                            >
+                            </input>
 
-                        <label htmlFor="userName">Email:</label>
-                        <input                             
-                            onChange={(e)=> {setCreatedUserName(e.target.value)}} 
-                            type="email" 
-                            id="createdEmail" 
-                            name="email"
-                            value={createdUserName}
-                        >
-                        </input>
+                            <label htmlFor="userName">Email:</label>
+                            <input                             
+                                onChange={(e)=> {setCreatedUserName(e.target.value)}} 
+                                type="email" 
+                                id="createdEmail" 
+                                name="email"
+                                value={createdUserName}
+                            >
+                            </input>
 
-                        <label htmlFor="pwd">Password:</label>
-                        <input 
-                            onChange={(e)=> {setCreatedPassword(e.target.value)}} 
-                            type="password" 
-                            id="createdPwd" 
-                            name="pwd" 
-                            minLength="8"
-                            value={createdPassword}
-                        >
-                        </input>
+                            <label htmlFor="pwd">Password:</label>
+                            <input 
+                                onChange={(e)=> {setCreatedPassword(e.target.value)}} 
+                                type="password" 
+                                id="createdPwd" 
+                                name="pwd" 
+                                minLength="8"
+                                value={createdPassword}
+                            >
+                            </input>
 
-                        <label htmlFor="pwd">Password Confirmation:</label>
-                        <input 
-                            onChange={(e)=> {setCreatedPasswordConfirm(e.target.value)}} 
-                            type="password" 
-                            id="confirmCreatedPwd" 
-                            name="pwd" 
-                            minLength="8"
-                            value={createdPasswordConfirm}
-                        >
-                        </input>
+                            <label htmlFor="pwd">Password Confirmation:</label>
+                            <input 
+                                onChange={(e)=> {setCreatedPasswordConfirm(e.target.value)}} 
+                                type="password" 
+                                id="confirmCreatedPwd" 
+                                name="pwd" 
+                                minLength="8"
+                                value={createdPasswordConfirm}
+                            >
+                            </input>
 
-                        <label htmlFor="avatar">Avatar:</label>
-                        <input
-                            onChange={(e)=> {setCreatedImage(e.target.value)}}  
-                            // type="file" 
-                            type="text"
-                            id="avatar" 
-                            name="avatar" 
-                            defaultValue={createdImage}  
-                        >
-                        </input>
-                        <input type="submit" onSubmit={handleSignup}></input>
-                    </form>
+                            <label htmlFor="avatar">Avatar:</label>
+                            <input
+                                onChange={(e)=> {setCreatedImage(e.target.value)}}  
+                                // type="file" 
+                                type="text"
+                                id="avatar" 
+                                name="avatar" 
+                                defaultValue={createdImage}  
+                            >
+                            </input>
+                            </div>
+                            <input type="submit" onSubmit={handleSignup}></input>
+                        </form>
+                    </div>
+                </div>
                 </div>
             </>
         );

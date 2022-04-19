@@ -5,7 +5,7 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
 
     function handleSubmit(e){
         e.preventDefault();
-        fetch('/scheduled_events', { //fetch to the events themselves
+        fetch('/scheduled_events', { 
             method: 'POST', 
             headers: {
             "Content-Type" : 'application/json',
@@ -22,6 +22,7 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
         })
         setDescription('')
         setcreatedBy('')
+        alert("Event Created")
     }
 
     if(!open){
