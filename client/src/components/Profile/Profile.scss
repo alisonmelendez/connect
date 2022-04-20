@@ -1,25 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
 .entireUserInfo{
-    background-color: pink;
+    background-color: #EFE5DC;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 30px;
-    margin: 25px 100px;
+    margin: 1% 30%;
+    filter: drop-shadow(0 0 1rem rgb(189, 187, 187));
 }
 
 .userInfo{
     text-align: center;
+
 }
 
 #userPic{
-    border-radius: 20%;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 0.5rem rgb(208, 205, 205));
 }
 
 #profileHeader{
+    font-family: 'Lato','Courier New', 'Courier', 'monospace';
     margin: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #profileLogOut{

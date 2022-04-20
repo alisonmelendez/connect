@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ScheduledEventCard from '../ScheduledEventCard/ScheduledEventCard';
 import NewEventModal from '../NewEventModal/NewEventModal';
 import './Dashboard.scss'; 
+import Navbar from '../Navbar/Navbar';
 
 function Dashboard() {
 
@@ -37,6 +38,7 @@ function Dashboard() {
 
         return (
             <>
+                <Navbar/>
                 <h1> Dashboard </h1>
 
                 {displayEvents.map((event)=> {

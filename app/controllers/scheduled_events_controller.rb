@@ -12,6 +12,7 @@ class ScheduledEventsController < ApplicationController
         @description = params[:description]
         @image = params[:image]
         @creator = params[:createdBy]
+        @invitees = params[:invitees]
         @user_id = @current_user.id
        
         event = ScheduledEvent.create!(
@@ -21,6 +22,7 @@ class ScheduledEventsController < ApplicationController
             description: @description, 
             image: @image, 
             createdBy: @creator,
+            invitees: @invitees,
             user_id: @user_id})
 
             render json: event, status: :ok
@@ -38,13 +40,15 @@ class ScheduledEventsController < ApplicationController
         head :no_content
     end
 
-    #need update and destory for the dashboard so that a user can update
-    #and delete an event from their listed events 
-
+    def event_invitees
+        event = find_event
+        render json: event.invitees
+    end
+    
     private 
     
     def event_params
-        params.permit(:eventName, :date, :time, :description, :image, :createdBy)
+        params.permit(:eventName, :date, :time, :description, :image, :createdBy, :invitees)
     end
 
     def find_event

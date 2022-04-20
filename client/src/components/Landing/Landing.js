@@ -165,7 +165,7 @@ function Landing() {
                             >
                             </input>
                             </div>
-                            <input type="submit" onSubmit={handleSignup}></input>
+                            <input id="signUpButton" type="submit" onSubmit={handleSignup}></input>
                         </form>
                     </div>
                 </div>

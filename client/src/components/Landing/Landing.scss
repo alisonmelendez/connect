@@ -1,19 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$border-dark: #000000;
+$gray-background-color: rgba(225, 220, 220, 0.823); 
+$gray: rgba(190, 187, 187, 0.561); 
+
+button{
+    padding: 1.5px 15px; 
+    background-color: $gray;
+
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+#signUpButton{
+    padding: 1.5px 15px; 
+    background-color: $gray;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+body{
+    background-color: rgba(225, 220, 220, 0.823);
+}
+
 input[type=text] {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid $border-dark;
 }
 
 input[type=password] {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid $border-dark;
 }
 
 input[type=email] {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid $border-dark;
 }
 
 .entireLandingContainer{
@@ -24,6 +48,9 @@ input[type=email] {
     font-size: 7vw;
     padding-top: 5%;
     margin: 0px;
+    font-family: 'Lato','Courier New', 'Courier', 'monospace';
+    font-weight: 600;
+    letter-spacing: 0.1em;
 }
 
 #familyPhoto{
@@ -34,22 +61,27 @@ input[type=email] {
 }
 
 .userAccountContainer{
-    background-color: green;
+    background-color: rgba(239, 239, 89, 0.432);
+    // background-color: rgba(90, 92, 90, 0.359);
     display: flex; 
     flex-direction: column;
+    border-radius: 20px;
 }
 
 .landingImage{
-    background-color: blue;
+    background-color: rgba(61, 10, 171, 0.441);
+    // background-color: rgba(0, 0, 255, 0.311);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
 }
 
 .entireLandingContainer{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .loginForm{
@@ -57,6 +89,7 @@ input[type=email] {
     flex-direction: column;
     padding: 10px; 
     margin: 20px;
+
 }
 .newUserForm{
     display: flex;

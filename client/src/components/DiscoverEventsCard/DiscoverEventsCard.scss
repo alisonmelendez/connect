@@ -1,36 +1,95 @@
-.eventCategoriesContainer {
-    background-color: rgb(194, 192, 192);
-}
-
-#eventImage{
-    width: 25%; 
-    height: 25%;
+#disEventImage{
+    width: 25vw; 
+    height: 30vh;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
 .eventHeader{
     background-color: red;
     display: flex;
-    // align-items:flex-end;
     justify-content: center;
 }
+#calIcon{
+    width: 24px;
+    height: 24px;
+}
 
+#locationIcon{
+    width: 24px;
+    height: 24px;
+}
 .eventInfo{
     background-color: white;
 }
+.eventdataOne{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.eventdataTwo{
+    display: flex;
+    flex-direction: row;
+}
+
+#ticketLink{
+    text-decoration: none;
+    color: white; 
+    // border: 1px solid;
+    border-radius: 5px;
+    padding: 2px 20px; 
+    background-color: blue;
+}
+
+
 
 .plusSign{
     background-color: yellow;
+    margin: 10px;
 }
 
-.eventCategoriesContainer{ //complete container 
-    // width: 50%; 
-    // height: 150px; 
+.eventCategoriesContainer p{
+    color: white; 
+    margin: 1px;
+    padding: 5px; 
+}
+
+.eventCategoriesContainer{ 
+    width: 40vw; 
+    height: 100%; 
+
+    background-color: rgb(194, 192, 192);
+    // background-color: green;
     display: flex;
-    align-items:flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin: 20px 0;
+    margin: 20px 0;    
+
+    border-radius: 20px;
+    filter: drop-shadow(0 0 1rem rgb(96, 95, 95));
+
 }
+
+.hugeContainer{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: orange;
+}
+
+.innerLargeContainer{
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    // background-color: red;
+}
+
+
+
 
 
 

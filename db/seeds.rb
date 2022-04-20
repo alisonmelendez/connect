@@ -6,17 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# class CreateScheduledEvents < ActiveRecord::Migration[6.1]
-#     def change
-#       create_table :scheduled_events do |t|
-#         t.string :eventName
-#         t.date :date
-#         t.time :time
-#         t.string :description
-#         t.string :image
-#         t.string :createdBy
-  
-#         t.timestamps
-#       end
-#     end
-#   end
+#scheduled event 
+# t.string "eventName"
+# t.date "date"
+# t.string "time"
+# t.string "description"
+# t.string "image"
+# t.string "createdBy"
+# t.bigint "user_id", null: false
+
+#"users"
+# t.string "first_name"
+# t.string "last_name"
+# t.string "username"
+# t.string "password_digest"
+# t.string "user_profile_image"
+
+User.destroy_all
+ScheduledEvent.destroy_all
+
+= 
+
+

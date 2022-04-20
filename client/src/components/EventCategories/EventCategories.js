@@ -12,7 +12,7 @@ function EventCategories({ setFilteredCategories, handleCategoryChange }){
 
     // categories.map((category)=> console.log(category.segment.name))
     
-    const categories = ["Film", "Arts & Theatre", "Music", "Sports"]
+    const categories = ["All", "Arts & Theatre", "Music", "Sports"]
 
     return (
         <>

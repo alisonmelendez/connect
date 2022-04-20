@@ -2,6 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.scss';
+import Navbar from '../Navbar/Navbar';
 
 
 function Profile() {
@@ -27,8 +28,9 @@ function Profile() {
     
         return (
             <>
+                <Navbar/>
                 <div className='entireUserInfo'>
-                    <h1 id="profileHeader"> Profile </h1>
+                    <h1 id="profileHeader"> Account Information </h1>
                     <div className="userInfo">
                         <img id="userPic" src={userProfile.user_profile_image}></img>
                         <p> Hi, {userProfile.first_name}!</p>
