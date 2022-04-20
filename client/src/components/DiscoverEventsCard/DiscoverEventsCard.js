@@ -15,7 +15,7 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
             <p>{APIcategory}-{APIgenre}</p>
             <a href={APIurl} target="_blank" rel="noreferrer noopener"> Event Link</a>
             <img id="eventImage" src={APIimage}/> {/* can change the size of the image in DiscoverEvents */}
-            <button onClick={() => setIsOpen(true)}className="plusSign">+</button>
+            <button onClick={() => setIsOpen(true)} className="plusSign">+</button>
             <Modal 
 
             APIname={APIname}

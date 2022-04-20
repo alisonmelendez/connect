@@ -9,12 +9,14 @@ import Landing from '../Landing/Landing';
 
 function App() {
 
-  const [eventName, setEventName] = useState(""); //set the API data name here so that it sets it as this at default? 
+  const [eventName, setEventName] = useState(""); 
   const [date, setDate] = useState(""); 
   const [time, setTime] = useState(""); 
   const [image, setImage] = useState(""); 
   const [description, setDescription] = useState(""); 
   const [createdBy, setcreatedBy] = useState(""); 
+
+  
 
   
   return (   

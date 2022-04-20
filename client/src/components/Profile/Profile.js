@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './Profile.scss';
 
 
 function Profile() {
@@ -12,7 +13,6 @@ function Profile() {
             .then((r) => r.json())
             .then((userData) => setUserProfile(userData)); 
     },[]); 
-    // console.log(userProfile)
 
     function handleLogOut(){
         fetch("/logout", {
@@ -27,17 +27,18 @@ function Profile() {
     
         return (
             <>
-                <h1> Profile Page </h1>
-                <div className="userInfo">
-                    <p> Hi, {userProfile.first_name}!</p>
-                    <p> Username: {userProfile.username}</p>
-                    <img src={userProfile.user_profile_image}></img>
+                <div className='entireUserInfo'>
+                    <h1 id="profileHeader"> Profile </h1>
+                    <div className="userInfo">
+                        <img id="userPic" src={userProfile.user_profile_image}></img>
+                        <p> Hi, {userProfile.first_name}!</p>
+                        <p> Username: {userProfile.username}</p>
+                    </div>
+                    <button id="profileLogOut"
+                    onClick={handleLogOut}>            
+                    <Link style={{ textDecoration: 'none', color:'black' }} to="/">Logout</Link>
+                    </button>
                 </div>
-                <button 
-                onClick={handleLogOut}>            
-                <Link to="/">Logout</Link>
-                </button>
-
             </>
         );
 }

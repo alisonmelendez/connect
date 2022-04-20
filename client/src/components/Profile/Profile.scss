@@ -1,0 +1,27 @@
+.entireUserInfo{
+    background-color: pink;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    margin: 25px 100px;
+}
+
+.userInfo{
+    text-align: center;
+}
+
+#userPic{
+    border-radius: 20%;
+}
+
+#profileHeader{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+#profileLogOut{
+    color: black;
+}

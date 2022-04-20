@@ -91,7 +91,7 @@ function Landing() {
                                 >
                                 </input>
                          
-                            <button id="loginButton" type="submit" onClick={handleLogin} > <Link to="/discover"> Login</Link></button>
+                            <button id="loginButton" type="submit" onClick={handleLogin} > <Link style={{ textDecoration: 'none', color:'black' }} to="/discover"> Login</Link></button>
                         </form>
                     </div>
                 
