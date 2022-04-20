@@ -22,9 +22,18 @@
 # t.string "password_digest"
 # t.string "user_profile_image"
 
+puts "destroying data.."
+
 User.destroy_all
 ScheduledEvent.destroy_all
 
-= 
+puts "creating users..."
+
+tiff = User.create!(first_name: 'Tiffhanie', last_name: 'Ramos', username: 'tramos@gmail.com', password_digest: 'password1', user_profile_image: 'https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png')
+
+puts "creating events..."
+
+ScheduledEvent.create!(eventName: 'Mitsuwa', date: '2022-04-21', time: '9:00 PM', description: 'Need groceries, craving ramen!', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/2d/cb/a0/mitsuwa.jpg', createdBy: 'Tiffhanie', user_id: tiff.id)
+
 
 

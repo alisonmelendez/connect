@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import EventCategoriesCard from '../EventCategoriesCard/EventCategoriesCard';
+import './EventCategories.scss'
 
 function EventCategories({ setFilteredCategories, handleCategoryChange }){ 
 

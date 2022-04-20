@@ -20,17 +20,8 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
     let regexMonth = yearJSON.match(/(-[\d{2}][\d{2}])"/);
     let finalDate = regexMonth[1].replaceAll('-', '');
 
-    
-
-   
-
-
-
-
-
     return (
 
-        <div className="hugeContainer">
             <div className="innerLargeContainer">
                 <div className="eventCategoriesContainer">
                     <h3 className="eventHeader">{APIname}</h3>
@@ -82,7 +73,6 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
                     />
                 </div>
             </div>
-        </div>
     ); 
 
 }
