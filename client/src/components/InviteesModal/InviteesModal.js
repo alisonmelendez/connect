@@ -45,7 +45,7 @@ function InviteesModal({ open, onClose,}) {
                         <label>
                             Event Name: 
                         </label>
-                        <input 
+                        <input
                             onChange={(e)=> {
                                 console.log(e.target.value)}} 
                             type="text" 
