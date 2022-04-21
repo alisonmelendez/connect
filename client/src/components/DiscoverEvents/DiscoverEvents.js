@@ -30,7 +30,12 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     }
     
     let filterCategories = events.filter(event => {
-        return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event });
+        if (filterCategory === 'All'){
+            return event 
+        } else {
+            return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event 
+        }
+    });
     
     
 
