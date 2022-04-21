@@ -3,6 +3,10 @@ $border-dark: #000000;
 $gray-background-color: rgba(225, 220, 220, 0.823); 
 $gray: rgba(190, 187, 187, 0.561); 
 
+*{
+    font-family: 'Lato','Courier New', 'Courier', 'monospace';
+
+}
 button{
     padding: 1.5px 15px; 
     background-color: $gray;

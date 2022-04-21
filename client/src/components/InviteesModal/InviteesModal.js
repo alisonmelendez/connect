@@ -1,35 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './InviteesModal.scss';
 
-function InviteesModal({ open, onClose,}) {
+function InviteesModal({ eventID, open, onClose, userInfo, setUserInfo}) {
 
-    // function handleEventSubmit(e){
-    //     e.preventDefault();
-    //     fetch('/scheduled_events', { 
-    //         method: 'POST', 
-    //         headers: {
-    //         "Content-Type" : 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             eventName: event, 
-    //             date: date,
-    //             time: time,
-    //             description: description,
-    //             image: image,
-    //             createdBy: createdBy
-    //         }),
-    //     })
-    //         .then(response => response.json())
-    //         .then((userData) => handleAddNewEvent(userData))
-    //         alert("Event Created")
+    const [inviteeID, setInviteeID] = useState([])
 
-    //         setEvent('')
-    //         setDate('')
-    //         setTime('')
-    //         setDescription('')
-    //         setImage('')
-    //         setcreatedBy('')   
-    //     }
+    function handleEventSubmit(e){
+        e.preventDefault();
+        fetch(`/scheduled_events/${eventID}`, { 
+            method: 'PATCH', 
+            headers: {
+            "Content-Type" : 'application/json',
+            },
+            body: JSON.stringify({
+                invitees: inviteeID
+            }),
+        })
+            .then(response => response.json())
+            .then((userData) => addInviteeToArray(userData))
+            alert("Invitees Added")
+        }
+
+
+    function addInviteeToArray(e){
+        if(e.target.checked) {
+            setInviteeID([...inviteeID, e.target.value]); 
+        } else {
+            setInviteeID(inviteeID.filter(invitee => invitee !== e.target.value))
+        }
+    }
+
+    let names = userInfo ? userInfo.map((user) => 
+    <div>
+        <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4>{user.first_name} {user.last_name}</h4>
+    </div>) : null
+
+
+
         
     if(!open){
         return null
@@ -37,38 +44,16 @@ function InviteesModal({ open, onClose,}) {
 
         return (
             <>
+                
 
                 <div className="overlay">
                 <div className="entireModal">
-                    {/* <form onSubmit={handleEventSubmit}> */}
-                    <form>
-                        <label>
-                            Event Name: 
-                        </label>
-                        
-                        <input
-                            onChange={(e)=> {
-                                console.log(e.target.value)}} 
-                            type="text" 
-                            name="event" 
-                            // value={event}
-                            />
-                        <label>
-                            Date: 
-                        </label>
-                        <input 
-                            onChange={(e)=> {
-                                console.log(e.target.value)}} 
-                            type="text" 
-                            name="date" 
-                            // value={date}
-                            />
-                       
+                    <form onSubmit={handleEventSubmit}>
+                        {names} 
                     <input type="submit" value="Submit" />
-                    {/* <input type="submit" value="Submit" onSubmit={handleEventSubmit} /> */}
                     </form>
                     
-                    <button onClick={onClose}> Close </button>
+                    <button className="modalCloseButton" onClick={onClose}> Close </button>
                 </div>
             </div>
 

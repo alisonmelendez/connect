@@ -41,9 +41,11 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
 
     return (
         <>
-            <p>Current Page Number: {page}</p>
-            <button onClick={movePageBack}>Left</button>
-            <button onClick={movePageAhead}>Right</button>
+            <div id="pageDisplay">
+                <button onClick={movePageBack}><img src="https://img.icons8.com/ios-filled/50/000000/long-arrow-left.png"/></button>
+                <p> Page: {page}</p>
+                <button onClick={movePageAhead}><img src="https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png"/></button>
+            </div>
 
             <div className="hugeContainer">
                 {filterCategories.map((event)=>{

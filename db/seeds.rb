@@ -37,7 +37,7 @@ mark = User.create!(first_name: 'Mark', last_name: 'DePacina', username: 'mdepac
 
 puts "creating events..."
 
-ScheduledEvent.create!(eventName: 'Mitsuwa', date: '2022-04-21', time: '9:00 PM', description: 'Need groceries, craving ramen!', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/2d/cb/a0/mitsuwa.jpg', createdBy: 'Tiffhanie', user_id: tiff.id)
+ScheduledEvent.create!(eventName: 'Mitsuwa', date: '2022-04-21', time: '9:00 PM', description: 'Need groceries, craving ramen!', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/2d/cb/a0/mitsuwa.jpg', createdBy: 'Tiffhanie', user_id: tiff.id, invitees: [ 1, 2, 3])
 
 
 

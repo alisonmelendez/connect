@@ -1,7 +1,14 @@
 .addNewEventButton{
-    background-color: teal;
-    //set to whatever the size is of one of the cards so that it just blends in 
-    // width: 50vw;
-    // height: 50vh; 
+    background-color: rgb(172, 172, 172);
+    width: 10vw;
+    height: 10vh; 
+    border: 1px solid black;
+}
+
+.addNewEvent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
