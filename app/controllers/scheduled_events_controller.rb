@@ -4,6 +4,11 @@ class ScheduledEventsController < ApplicationController
         events = ScheduledEvent.all
         render json: events 
     end
+
+    def show 
+        event = find_event
+        render json: event, status: :ok
+    end
     
     def create
         @name = params[:eventName]
@@ -15,22 +20,24 @@ class ScheduledEventsController < ApplicationController
         @invitees = params[:invitees]
         @user_id = @current_user.id
        
-        event = ScheduledEvent.create!(
-            {eventName: @name, 
+        event = ScheduledEvent.create!({
+            eventName: @name, 
             date: @date, 
             time: @time, 
             description: @description, 
             image: @image, 
             createdBy: @creator,
             invitees: @invitees,
-            user_id: @user_id})
+            user_id: @user_id
+            })
 
             render json: event, status: :ok
     end
 
     def update
+        @invitees = params[:invitees]
         event = find_event
-        event.update(event_params)
+        event.update({invitees: @invitees}) ### check the params 
         render json: event, status: :ok
     end
 
@@ -50,6 +57,8 @@ class ScheduledEventsController < ApplicationController
     def event_params
         params.permit(:eventName, :date, :time, :description, :image, :createdBy, :invitees)
     end
+
+    
 
     def find_event
         ScheduledEvent.find(params[:id])

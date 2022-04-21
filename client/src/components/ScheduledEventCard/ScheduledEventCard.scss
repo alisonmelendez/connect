@@ -1,8 +1,34 @@
 #sEventImage{
-    width: 20vw; 
-    height: 100%; 
+    width: 25vw; 
+    height: 30vh;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
 }
 
 .eventCard{
     background-color: darkgrey;
 }
+
+#inviteeNames{
+   text-align: center;
+}
+
+#guestNames{
+    text-align: center;
+}
+
+.scheduledButtons{
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+
+.scheduledButtons:first-child{
+    background-color: black;
+}
+
+#schCalIcon{
+    width: 24px;
+    height: 24px;
+}
+

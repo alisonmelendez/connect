@@ -1,4 +1,5 @@
 import React from 'react';
+import InviteesModal from '../InviteesModal/InviteesModal';
 import '../Modal/Modal.scss';
 
 function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,APIgenre,eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy, open, onClose}) {
@@ -16,7 +17,8 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                 time: APItime,
                 description: description,
                 image: APIimage,
-                createdBy: createdBy
+                createdBy: createdBy,
+                invitees: []
             })
             
         })
@@ -32,7 +34,7 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
         return (
             <div className="overlay">
                 <div className="entireModal">
-                    <form onSubmit={handleSubmit}>
+                    <form id="discoverEventsModal" onSubmit={handleSubmit}>
                         <label>
                             Event Name: 
                         </label>
@@ -90,9 +92,10 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                             value={createdBy}
                             />
                     <input type="submit" value="Submit" onSubmit={handleSubmit}/>
+                    <button className="modalCloseButton" onClick={onClose}> Close </button>
                     </form>
                     
-                    <button onClick={onClose}> Close </button>
+                    {/* <button className="modalCloseButton" onClick={onClose}> Close </button> */}
                 </div>
             </div>
         );

@@ -17,6 +17,8 @@ function Dashboard() {
     const [image, setImage] = useState(""); 
     const [description, setDescription] = useState(""); 
     const [createdBy, setcreatedBy] = useState(""); 
+
+    const [userInfo, setUserInfo] = useState(""); 
   
 
     useEffect(() => {
@@ -24,6 +26,7 @@ function Dashboard() {
           .then((r) => r.json())
           .then((data) => setdisplayEvents(data.scheduled_events)); 
       }, []);
+      console.log(displayEvents)
 
     function onHandleEventDelete(removedEvent){
         const remainingEvents = displayEvents.filter((event) => event.id !== removedEvent)
@@ -34,25 +37,36 @@ function Dashboard() {
         setdisplayEvents([...displayEvents, newEvent])
     }
 
+    useEffect(() => {
+        fetch('/users')
+        .then(response => response.json())
+        .then(data => setUserInfo(data));
+    }, []);
+
         return (
             <>
                 <Navbar/>
                 <h1> Dashboard </h1>
 
+                <div className="hugeContainer">
                 {displayEvents.map((event)=> {
                 return <ScheduledEventCard
-                key={event.id}
-                eventID={event.id}
-                name={event.eventName}
-                date={event.date}
-                description={event.description}
-                createdBy={event.createdBy}
-                image={event.image}
-                time={event.time}
-                onHandleEventDelete={onHandleEventDelete}
+                    key={event.id}
+                    eventID={event.id}
+                    name={event.eventName}
+                    date={event.date}
+                    description={event.description}
+                    createdBy={event.createdBy}
+                    image={event.image}
+                    time={event.time}
+                    invitees={event.invitees}
+                    onHandleEventDelete={onHandleEventDelete}
+                    userInfo={userInfo}
+                    setUserInfo={setUserInfo}
                     />})
             
                 }
+                </div>
 
 
                 
@@ -62,6 +76,7 @@ function Dashboard() {
                     <NewEventModal
                         open={openModal}
                         onClose={() => setOpenModal(false)} 
+                        
 
                         event={event}
                         setEvent={setEvent}
