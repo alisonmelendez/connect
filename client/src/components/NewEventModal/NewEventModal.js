@@ -1,4 +1,5 @@
 import React from 'react';
+import './NewEventModal.scss'
 
 function NewEventModal({ handleAddNewEvent, open, onClose, event, setEvent,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy }) {
 
@@ -15,7 +16,8 @@ function NewEventModal({ handleAddNewEvent, open, onClose, event, setEvent,date,
                 time: time,
                 description: description,
                 image: image,
-                createdBy: createdBy
+                createdBy: createdBy,
+                invitees: []
             }),
         })
             .then(response => response.json())
@@ -39,7 +41,7 @@ function NewEventModal({ handleAddNewEvent, open, onClose, event, setEvent,date,
 
                 <div className="overlay">
                 <div className="entireModal">
-                    <form onSubmit={handleEventSubmit}>
+                    <form id="uglyModalFix" onSubmit={handleEventSubmit}>
                         <label>
                             Event Name: 
                         </label>
