@@ -13,12 +13,9 @@ function ScheduledEventCard({ eventID, name, date, description, createdBy, image
         .then(() => onHandleEventDelete(eventID));
     }
 
-    // function handleEventEdit(){ 
-    //     fetch(`/scheduled_events/${eventID}`, {
-    //     method: "PATCH",
-    //   })
-    //     .then(() => onHandleEventDelete(eventID));
-    // }
+    function test(){
+        console.log('woo')
+    }
 
     return (
         <>
@@ -29,7 +26,7 @@ function ScheduledEventCard({ eventID, name, date, description, createdBy, image
                 <p>{createdBy}</p>
                 <img id="sEventImage" src={image}></img>
                 <button onClick={handleEventDelete}> Delete </button>
-                {/* <button onClick={handleEventEdit}> Edit </button> */}
+                <button onClick={test}> Add Invitees </button>
             </div>
         </>
     ); 

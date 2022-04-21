@@ -57,7 +57,7 @@ function Dashboard() {
 
                 
                 <div className='addNewEvent'>
-                    <button onClick={() => setOpenModal(true)} className="addNewEventButton">+</button>
+                    <button onClick={() => setOpenModal(true)} className="addNewEventButton"> Add New Event </button>
 
                     <NewEventModal
                         open={openModal}
