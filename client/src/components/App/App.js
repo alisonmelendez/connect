@@ -5,10 +5,11 @@ import Dashboard from '../Dashboard/Dashboard';
 import Discover from '../Discover/Discover';
 import Profile from '../Profile/Profile';
 import { useState } from 'react';
+import Landing from '../Landing/Landing';
 
 function App() {
 
-  const [eventName, setEventName] = useState(""); //set the API data name here so that it sets it as this at default? 
+  const [eventName, setEventName] = useState(""); 
   const [date, setDate] = useState(""); 
   const [time, setTime] = useState(""); 
   const [image, setImage] = useState(""); 
@@ -16,11 +17,13 @@ function App() {
   const [createdBy, setcreatedBy] = useState(""); 
 
   
+
+  
   return (   
     <Router>
-    <Navbar/>
       <Routes>
-        <Route path="/" element=
+        <Route path="/" element={<Landing/>}></Route>
+        <Route path="/discover" element=
         {<Discover
           eventName={eventName}
           setEventName={setEventName}

@@ -1,3 +1,17 @@
-// .navLinks{
-//     background-color: red; 
-// }
+.navLinks{
+    background-color: rgba(183, 180, 180, 0.218); 
+    padding: 20px; 
+    text-align: end;
+
+}
+
+.navLink{
+    margin-left: 1%;
+    color: rgb(155, 154, 154);
+    text-decoration: none;
+}
+
+.navLink:hover{
+    color: black;
+    text-decoration: underline;
+}

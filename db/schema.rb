@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_155754) do
     t.string "description"
     t.string "image"
     t.string "createdBy"
+    t.integer "invitees", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

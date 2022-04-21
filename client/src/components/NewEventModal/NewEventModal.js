@@ -1,9 +1,8 @@
 import React from 'react';
-import '../Modal/Modal.scss';
 
-function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,APIgenre,eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy, open, onClose}) {
+function NewEventModal({ handleAddNewEvent, open, onClose, event, setEvent,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy }) {
 
-    function handleSubmit(e){
+    function handleEventSubmit(e){
         e.preventDefault();
         fetch('/scheduled_events', { 
             method: 'POST', 
@@ -11,37 +10,45 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
             "Content-Type" : 'application/json',
             },
             body: JSON.stringify({
-                eventName: APIname, 
-                date: APIdate,
-                time: APItime,
+                eventName: event, 
+                date: date,
+                time: time,
                 description: description,
-                image: APIimage,
+                image: image,
                 createdBy: createdBy
-            })
-            
+            }),
         })
-        setDescription('')
-        setcreatedBy('')
-        alert("Event Created")
-    }
+            .then(response => response.json())
+            .then((userData) => handleAddNewEvent(userData))
+            alert("Event Created")
 
+            setEvent('')
+            setDate('')
+            setTime('')
+            setDescription('')
+            setImage('')
+            setcreatedBy('')   
+        }
+        
     if(!open){
         return null
     }
 
         return (
-            <div className="overlay">
+            <>
+
+                <div className="overlay">
                 <div className="entireModal">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleEventSubmit}>
                         <label>
                             Event Name: 
                         </label>
                         <input 
                             onChange={(e)=> {
-                                setEventName(e.target.value)}} 
+                                setEvent(e.target.value)}} 
                             type="text" 
                             name="event" 
-                            defaultValue={APIname}
+                            value={event}
                             />
                         <label>
                             Date: 
@@ -51,7 +58,7 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                                 setDate(e.target.value)}} 
                             type="text" 
                             name="date" 
-                            defaultValue={APIdate}
+                            value={date}
                             />
                         <label>
                             Time: 
@@ -60,7 +67,7 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                             onChange={(e)=> setTime(e.target.value)} 
                             type="text" 
                             name="time" 
-                            defaultValue={APItime}
+                            value={time}
                             />
                         <label>
                             Description: 
@@ -78,7 +85,7 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                             onChange={(e)=> setImage(e.target.value)} 
                             type="text" 
                             name="image" 
-                            defaultValue={APIimage}
+                            value={image}
                             />
                         <label>
                             Created By: 
@@ -89,13 +96,15 @@ function Modal({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,A
                             name="creator" 
                             value={createdBy}
                             />
-                    <input type="submit" value="Submit" onSubmit={handleSubmit}/>
+                    <input type="submit" value="Submit" onSubmit={handleEventSubmit}/>
                     </form>
                     
                     <button onClick={onClose}> Close </button>
                 </div>
             </div>
+
+            </>
         );
 }
 
-export default Modal;
+export default NewEventModal;

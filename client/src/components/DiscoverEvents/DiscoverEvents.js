@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../DiscoverEvents/DiscoverEvents.scss'; 
 import { useEffect } from 'react';
 import DiscoverEventsCard from '../DiscoverEventsCard/DiscoverEventsCard';
+import AddButton from '../ScrollButton/ScrollButton';
+
 
 function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
 
@@ -9,9 +11,10 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     let [page, setPageNum] = useState(0); 
 
     useEffect(() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=10&page=${page}`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
+        // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
           .then((r) => r.json())
-          .then((data) => setEvents(data._embedded.events)); 
+          .then((data) => setEvents(data._embedded.events));
       }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
 
     function movePageAhead(){
@@ -25,7 +28,6 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             setPageNum(page); 
         }
     }
-
     
     let filterCategories = events.filter(event => {
         return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event });
@@ -34,40 +36,44 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
 
     return (
         <>
-        <p>Current Page Number: {page}</p>
-        <button onClick={movePageBack}>Left</button>
-        <button onClick={movePageAhead}>Right</button>
+            <p>Current Page Number: {page}</p>
+            <button onClick={movePageBack}>Left</button>
+            <button onClick={movePageAhead}>Right</button>
 
-        {filterCategories.map((event)=>{
-        return <DiscoverEventsCard 
-            //API data
-            key={event.id}
-            APIname={event.name}
-            APIurl={event.url}
-            APIimage={event.images[3].url}
-            APIdate={event.dates.start.localDate}
-            APItime={event.dates.start.localTime}
-            APIcategory={event.classifications[0].segment.name}
-            APIgenre={event.classifications[0].genre.name}
-            APIvenue={event._embedded.venues[0].name}
-            
-            // state being passed down from app 
-            eventName={eventName}
-            setEventName={setEventName}
-            date={date}
-            setDate={setDate}
-            time={time}
-            setTime={setTime}
-            image={image}
-            setImage={setImage}
-            description={description}
-            setDescription={setDescription}
-            createdBy={createdBy}
-            setcreatedBy={setcreatedBy}
+            <div className="hugeContainer">
+                {filterCategories.map((event)=>{
+                    return <DiscoverEventsCard 
+                    //API data
+                    key={event.id}
+                    APIname={event.name}
+                    APIurl={event.url}
+                    APIimage={event.images[3].url}
+                    APIdate={event.dates.start.localDate}
+                    APItime={event.dates.start.localTime}
+                    APIcategory={event.classifications[0].segment.name}
+                    APIgenre={event.classifications[0].genre.name}
+                    APIvenue={event._embedded.venues[0].name}
+                    
+                    // state being passed down from app 
+                    eventName={eventName}
+                    setEventName={setEventName}
+                    date={date}
+                    setDate={setDate}
+                    time={time}
+                    setTime={setTime}
+                    image={image}
+                    setImage={setImage}
+                    description={description}
+                    setDescription={setDescription}
+                    createdBy={createdBy}
+                    setcreatedBy={setcreatedBy}
+                
+                    /> })
+                }
+                <AddButton/>
+            </div>
 
-        /> })}
-
-       
+        
         </>
     ); 
 

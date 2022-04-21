@@ -6,7 +6,7 @@ function Navbar(){
 
     return (
         <div className="navLinks">
-            <Link className="navLink" to="/"> Discover</Link>
+            <Link className="navLink" to="/discover"> Discover</Link>
             <Link className="navLink" to="/profile"> Profile</Link>
             <Link className="navLink" to="/dashboard"> Dashboard</Link>
         </div>
