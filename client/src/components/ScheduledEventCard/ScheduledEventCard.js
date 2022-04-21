@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import '../ScheduledEventCard/ScheduledEventCard.scss'; 
 import Modal from '../Modal/Modal';
+import InviteesModal from '../InviteesModal/InviteesModal';
 
 
 function ScheduledEventCard({ eventID, name, date, description, createdBy, image, time, onHandleEventDelete }){
+
+    const[isOpen, setIsOpen] = useState(false); 
+
 
 
     function handleEventDelete(){ 
@@ -11,10 +15,6 @@ function ScheduledEventCard({ eventID, name, date, description, createdBy, image
         method: "DELETE",
       })
         .then(() => onHandleEventDelete(eventID));
-    }
-
-    function test(){
-        console.log('woo')
     }
 
     return (
@@ -26,7 +26,11 @@ function ScheduledEventCard({ eventID, name, date, description, createdBy, image
                 <p>{createdBy}</p>
                 <img id="sEventImage" src={image}></img>
                 <button onClick={handleEventDelete}> Delete </button>
-                <button onClick={test}> Add Invitees </button>
+                <button onClick={() => setIsOpen(true)}> Add Invitees </button>
+                <InviteesModal
+                    open={isOpen} 
+                    onClose={() => setIsOpen(false)}
+                />
             </div>
         </>
     ); 
