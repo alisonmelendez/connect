@@ -29,7 +29,7 @@ ScheduledEvent.destroy_all
 
 puts "creating users..."
 
-tiff = User.create!(first_name: 'Tiffhanie', last_name: 'Ramos', username: 'tramos@gmail.com', password_digest: 'password1', user_profile_image: 'https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png')
+tiff = User.create!(first_name: 'Tiffhanie', last_name: 'Ramos', username: 'tramos@gmail.com', password: 'password1', user_profile_image: 'https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png')
 
 puts "creating events..."
 

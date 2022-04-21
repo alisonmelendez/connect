@@ -19,9 +19,9 @@ function Dashboard() {
   
 
     useEffect(() => {
-        fetch('/scheduled_events')
+        fetch('/me')
           .then((r) => r.json())
-          .then((data) => setdisplayEvents(data)); 
+          .then((data) => setdisplayEvents(data.scheduled_events)); 
       }, []);
 
     function onHandleEventDelete(removedEvent){
@@ -32,9 +32,6 @@ function Dashboard() {
     function handleAddNewEvent(newEvent){
         setdisplayEvents([...displayEvents, newEvent])
     }
-
-
-
 
         return (
             <>
@@ -55,6 +52,8 @@ function Dashboard() {
                     />})
             
                 }
+
+
                 
                 <div className='addNewEvent'>
                     <button onClick={() => setOpenModal(true)} className="addNewEventButton">+</button>
