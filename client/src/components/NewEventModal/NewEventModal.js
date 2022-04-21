@@ -30,7 +30,6 @@ function NewEventModal({ handleAddNewEvent, open, onClose, event, setEvent,date,
             setcreatedBy('')   
         }
         
-
     if(!open){
         return null
     }

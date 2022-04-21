@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../DiscoverEvents/DiscoverEvents.scss'; 
 import { useEffect } from 'react';
 import DiscoverEventsCard from '../DiscoverEventsCard/DiscoverEventsCard';
+import AddButton from '../ScrollButton/ScrollButton';
 
 
 function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
@@ -10,9 +11,10 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     let [page, setPageNum] = useState(0); 
 
     useEffect(() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=10&page=${page}&dmaId=345`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
+        // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
           .then((r) => r.json())
-          .then((data) => setEvents(data._embedded.events)); 
+          .then((data) => setEvents(data._embedded.events));
       }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
 
     function movePageAhead(){
@@ -26,7 +28,6 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             setPageNum(page); 
         }
     }
-
     
     let filterCategories = events.filter(event => {
         return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event });
@@ -69,6 +70,7 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
                 
                     /> })
                 }
+                <AddButton/>
             </div>
 
         

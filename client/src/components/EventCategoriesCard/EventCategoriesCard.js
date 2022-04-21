@@ -18,13 +18,11 @@ function EventCategoriesCard({category, setFilteredCategories, handleCategoryCha
     }
 
     return (
-        <div className='test'>
-        <div className="entireEventCategoriesContainer">
-            <div className="eventContainer"> 
+        // <div className="entireEventCategoriesContainer">
+            <div> 
                 <button onClick={onCategoryClick} className="eventTitle" value={category}>{category}</button>
             </div>
-        </div>
-        </div>
+        // </div>
     ); 
 
 }

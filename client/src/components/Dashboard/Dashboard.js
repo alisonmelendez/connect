@@ -4,6 +4,7 @@ import ScheduledEventCard from '../ScheduledEventCard/ScheduledEventCard';
 import NewEventModal from '../NewEventModal/NewEventModal';
 import './Dashboard.scss'; 
 import Navbar from '../Navbar/Navbar';
+import ScrollButton from '../ScrollButton/ScrollButton';
 
 function Dashboard() {
 
@@ -78,6 +79,9 @@ function Dashboard() {
                         setdisplayEvents={setdisplayEvents}
                         handleAddNewEvent={handleAddNewEvent}
                     />
+
+                    <ScrollButton/>
+
                 </div>
             </>
         );

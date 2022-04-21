@@ -17,15 +17,16 @@ function EventCategories({ setFilteredCategories, handleCategoryChange }){
 
     return (
         <>
-
-        {categories.map((category,i)=> {
-            return <EventCategoriesCard
-                key={i}
-                category={category}
-                setFilteredCategories={setFilteredCategories}
-                handleCategoryChange={handleCategoryChange}
-                />})
-        }
+            <div className="filtersForCategoriesContainer">
+                {categories.map((category,i)=> {
+                    return <EventCategoriesCard
+                        key={i}
+                        category={category}
+                        setFilteredCategories={setFilteredCategories}
+                        handleCategoryChange={handleCategoryChange}
+                        />})
+                }
+            </div>
         </>
     ); 
 
