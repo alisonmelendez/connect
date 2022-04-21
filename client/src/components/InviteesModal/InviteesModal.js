@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './InviteesModal.scss';
 
-function InviteesModal({ eventID, open, onClose, userInfo, setUserInfo}) {
+function InviteesModal({ eventID, open, onClose, userInfo}) {
 
     const [inviteeID, setInviteeID] = useState([])
 
@@ -31,8 +31,11 @@ function InviteesModal({ eventID, open, onClose, userInfo, setUserInfo}) {
     }
 
     let names = userInfo ? userInfo.map((user) => 
-    <div>
-        <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4>{user.first_name} {user.last_name}</h4>
+    <div className="areaAroundNames">
+        <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4 id="inviteUserNames">{user.first_name}</h4>
+
+        {/* below also has a last name added */}
+        {/* <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4 id="inviteUserNames">{user.first_name} {user.last_name}</h4> */}
     </div>) : null
 
 
