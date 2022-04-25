@@ -1,14 +1,15 @@
 #disEventImage{
-    width: 25vw; 
-    height: 30vh;
-    margin-top: 10px;
-    border-radius: 10px;
+    width: 100%; 
+    // height: 30vh;
+    height: 50vh;
+    // margin-top: 10px;
 }
 
 .eventHeader{
     // background-color: red;
     display: flex;
     justify-content: center;
+    
 }
 #calIcon{
     width: 24px;
@@ -27,11 +28,16 @@
     flex-direction: row;
     justify-content: left;
     align-items: center;
+
+    padding: 0px 10px; 
 }
 
 .eventdataTwo{
     display: flex;
     flex-direction: row;
+
+    padding: 0px 10px; 
+
 }
 
 #ticketLink{
@@ -42,31 +48,42 @@
     background-color: black;
 }
 
-
-
 .plusSign{
-    // background-color: yellow;
-    margin: 10px;
+    background-color: #246A73;
+    color: white;
+    margin: 10px 0px;
+
+    border-radius: 5px;
+    padding: 2px 20px; 
+    border: none;
+    font-size: 1rem;
 }
 
 .eventCategoriesContainer p{
-    color: white; 
+    color: rgb(255, 255, 255); 
+    // color: gray; 
     margin: 1px;
     padding: 5px; 
 }
 
 .eventCategoriesContainer{ 
-    width: 35vw; 
+    // width: 35vw; 
+    width: 34vw; 
     height: 100%; 
 
-    background-color: rgb(194, 192, 192);
+    // background-color: rgb(194, 192, 192);
+    // background-color: #e8dfd8cb;
+
+    background-color: #ddc9bacb;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin: 20px 0;    
+    // margin: 20px 0;    
+    margin: 5px 20px;    
 
-    border-radius: 20px;
+    border-radius: 5px;
+    border: solid 0.5px black;
     filter: drop-shadow(0 0 1rem rgb(96, 95, 95));
 
 }
@@ -78,10 +95,12 @@
     flex-wrap: wrap;
     align-items: left;
     justify-content: center;
+
 }
 
 .innerLargeContainer{
-    width: 50vw;
+    // width: 50vw;
+    width: 33vw; //to have 3 cards display in a row 
     margin-bottom: 5%;
     justify-content: space-evenly;
     display: flex;
