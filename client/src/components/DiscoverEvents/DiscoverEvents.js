@@ -36,6 +36,18 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event 
         }
     });
+
+    
+
+
+    {filterCategories.map((event)=> 
+        console.log(event.dates.start.localTime) //this is a string so you can just remove whatever you don't want from it 
+
+        //parse the beginning of the hour (first two digits and covert that to 12 hr)
+        //remove the end :00 so that it no longer has the seconds 
+        //can leave the minutes section as is 
+    )}
+
     
     
 
