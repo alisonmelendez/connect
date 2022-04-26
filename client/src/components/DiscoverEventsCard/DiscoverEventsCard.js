@@ -24,9 +24,10 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
 
             <div className="innerLargeContainer">
                 <div className="eventCategoriesContainer">
+                    <img id="disEventImage" src={APIimage}/> {/* can change the size of the image in DiscoverEvents */}
+
                     <h3 className="eventHeader">{APIname}</h3>
                     {/* <p>{APIdate} {APItime}</p> */}
-                    <img id="disEventImage" src={APIimage}/> {/* can change the size of the image in DiscoverEvents */}
 
                     <div className="eventdataOne">
                     <img id="calIcon" src="https://img.icons8.com/android/48/000000/calendar.png"/>
@@ -38,11 +39,13 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
                     <img id="locationIcon" src="https://img.icons8.com/ios/50/000000/marker--v1.png"/>
                     <p>{APIvenue}</p>
                     {/* provides the overall category and the sub category  */}
-                    <p>{APIcategory}-{APIgenre}</p>
                     </div>
+                    <p>{APIcategory} : {APIgenre}</p>
+                    {/* <p>{APIgenre}</p> */}
+
                     
-                    <a id="ticketLink" href={APIurl} target="_blank" rel="noreferrer noopener"> Ticket Link </a>
                     <button onClick={() => setIsOpen(true)} className="plusSign"> Add Event </button>
+                    <a id="ticketLink" href={APIurl} target="_blank" rel="noreferrer noopener"> Ticket Link </a>
                     <Modal 
 
                     APIname={APIname}
