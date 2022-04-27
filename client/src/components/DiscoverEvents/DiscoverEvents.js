@@ -36,7 +36,39 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event 
         }
     });
+
     
+
+    // let fixedString = str.slice(0, str.length - 1);
+
+    {filterCategories.map((event)=> {
+
+        //this is a string so you can just remove whatever you don't want from it 
+        // console.log(event.dates.start.localTime) 
+
+        //console.log((event.dates.start.localTime).slice(0, event.dates.start.localTime.length - 3))
+
+        let test = event.dates.start.localTime.slice(0,2) //hour 
+        // console.log(parseInt(test)) //in 24 hour time 
+
+        // let fixedHour = parseInt(test)
+
+        let fixedHour = parseInt(event.dates.start.localTime.slice(0,2))
+
+        let hours = ((parseInt(event.dates.start.localTime.slice(0,2)) + 11) % 12 + 1); //pass this down as the hour, this works 
+
+        console.log(`fixed hour: ${hours} + 24 time: ${test}`)
+
+
+
+    }
+        //parse the beginning of the hour (first two digits and covert that to 12 hr)
+        //remove the end :00 so that it no longer has the seconds 
+        //can leave the minutes section as is 
+
+        //the above code works to fix the hour, but would need a way to pass drop as a prop to the other component 
+    )}
+
     
 
     return (
@@ -56,7 +88,8 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
                     APIurl={event.url}
                     APIimage={event.images[3].url}
                     APIdate={event.dates.start.localDate}
-                    APItime={event.dates.start.localTime}
+                    // APItime={event.dates.start.localTime}
+                    APItime={event.dates.start.localTime.slice(0, event.dates.start.localTime.length - 3)}
                     APIcategory={event.classifications[0].segment.name}
                     APIgenre={event.classifications[0].genre.name}
                     APIvenue={event._embedded.venues[0].name}
