@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../DiscoverEventsCard/DiscoverEventsCard.scss'; 
 import Modal from '../Modal/Modal';
 
-function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,APIcategory,APIgenre,eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
+function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHour, APItimeMinute, APIvenue,APIcategory,APIgenre,eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
 
     const[isOpen, setIsOpen] = useState(false); 
 
@@ -20,6 +20,10 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
     let regexMonth = yearJSON.match(/(-[\d{2}][\d{2}])"/);
     let finalDate = regexMonth[1].replaceAll('-', '');
 
+    let convertedHour = APItimeHour > 12 ? APItimeHour - 12 : APItimeHour
+    let convertedMinute = APItimeHour >= 12 ? `${APItimeMinute} PM` : `${APItimeMinute} AM`
+    let APIconvertedTime = `${convertedHour}:${convertedMinute}`
+
     //fix this, months with two digits are still displaying a - in front (example -10, -12, etc)
 
     return (
@@ -34,7 +38,7 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
                     <div className="eventdataOne">
                     <img id="calIcon" src="https://img.icons8.com/android/48/000000/calendar.png"/>
                     <p>{finalMonth}{finalDate}-{regexYear[0]}</p>
-                    <p>{APItime}</p>
+                    <p>{APIconvertedTime}</p>
                     </div>
 
                     <div className="eventdataTwo">
@@ -56,7 +60,7 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
                     APIurl={APIurl}
                     APIimage={APIimage}
                     APIdate={APIdate}
-                    APItime={APItime}
+                    APItime={APIconvertedTime}
                     APIcategory={APIcategory}
                     APIgenre={APIgenre}
                     APIvenue={APIvenue}
