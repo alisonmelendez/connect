@@ -20,6 +20,8 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APIvenue,
     let regexMonth = yearJSON.match(/(-[\d{2}][\d{2}])"/);
     let finalDate = regexMonth[1].replaceAll('-', '');
 
+    //fix this, months with two digits are still displaying a - in front (example -10, -12, etc)
+
     return (
 
             <div className="innerLargeContainer">
