@@ -16,15 +16,17 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
     let newDate = regexDate[0].replaceAll('-', '');
 
     //use finalDate 
-    let finalMonth = regexDate[0].replaceAll('-0', '');
     let regexMonth = yearJSON.match(/(-[\d{2}][\d{2}])"/);
     let finalDate = regexMonth[1].replaceAll('-', '');
+
+    //using string properties instead for the month 
+    let month = yearJSON.slice(17, 19);
+    let formattedMonth = month.replaceAll('0','')
+    
 
     let convertedHour = APItimeHour > 12 ? APItimeHour - 12 : APItimeHour
     let convertedMinute = APItimeHour >= 12 ? `${APItimeMinute} PM` : `${APItimeMinute} AM`
     let APIconvertedTime = `${convertedHour}:${convertedMinute}`
-
-    //fix this, months with two digits are still displaying a - in front (example -10, -12, etc)
 
     return (
 
@@ -33,11 +35,14 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     <img id="disEventImage" src={APIimage}/> {/* can change the size of the image in DiscoverEvents */}
 
                     <h3 className="eventHeader">{APIname}</h3>
+                    <p id="eventCatGen">{APIcategory} · {APIgenre}</p>
+                    <hr id="lineBreak"></hr>
+
                     {/* <p>{APIdate} {APItime}</p> */}
 
                     <div className="eventdataOne">
                     <img id="calIcon" src="https://img.icons8.com/android/48/000000/calendar.png"/>
-                    <p>{finalMonth}{finalDate}-{regexYear[0]}</p>
+                    <p>{formattedMonth}-{finalDate}-{regexYear[0]}</p>
                     <p>{APIconvertedTime}</p>
                     </div>
 
@@ -45,14 +50,13 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     <img id="locationIcon" src="https://img.icons8.com/ios/50/000000/marker--v1.png"/>
                     <p>{APIvenue}</p>
                     {/* provides the overall category and the sub category  */}
-                    {/* <p>{APIcategory} · {APIgenre}</p> */}
                     </div>
-                    <p>{APIcategory} · {APIgenre}</p>
+                    {/* <p id="eventCatGen">{APIcategory} · {APIgenre}</p> */}
                     {/* <p>{APIgenre}</p> */}
 
                     <div className="disEventLinks">
-                        <button onClick={() => setIsOpen(true)} className="plusSign"> Add Event </button>
                         <a id="ticketLink" href={APIurl} target="_blank" rel="noreferrer noopener"> Ticket Link </a>
+                        <button onClick={() => setIsOpen(true)} className="plusSign"> Add Event </button>
                     </div>
                     <Modal 
 
