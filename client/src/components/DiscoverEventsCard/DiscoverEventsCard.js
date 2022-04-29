@@ -35,6 +35,9 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     <img id="disEventImage" src={APIimage}/> {/* can change the size of the image in DiscoverEvents */}
 
                     <h3 className="eventHeader">{APIname}</h3>
+                    <p id="eventCatGen">{APIcategory} · {APIgenre}</p>
+                    <hr id="lineBreak"></hr>
+
                     {/* <p>{APIdate} {APItime}</p> */}
 
                     <div className="eventdataOne">
@@ -47,9 +50,8 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     <img id="locationIcon" src="https://img.icons8.com/ios/50/000000/marker--v1.png"/>
                     <p>{APIvenue}</p>
                     {/* provides the overall category and the sub category  */}
-                    {/* <p>{APIcategory} · {APIgenre}</p> */}
                     </div>
-                    <p>{APIcategory} · {APIgenre}</p>
+                    {/* <p id="eventCatGen">{APIcategory} · {APIgenre}</p> */}
                     {/* <p>{APIgenre}</p> */}
 
                     <div className="disEventLinks">
