@@ -36,17 +36,12 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event 
         }
     });
-
     
-
-    // let fixedString = str.slice(0, str.length - 1);
-    
-
     return (
         <>
             <div id="pageDisplay">
                 <button onClick={movePageBack}><img src="https://img.icons8.com/ios-filled/50/000000/long-arrow-left.png"/></button>
-                <p> Page: {page}</p>
+                <p> <span>{page}</span></p>
                 <button onClick={movePageAhead}><img src="https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png"/></button>
             </div>
 
@@ -59,9 +54,6 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
                     APIurl={event.url}
                     APIimage={event.images[3].url}
                     APIdate={event.dates.start.localDate}
-                    // APItime={event.dates.start.localTime}
-                    // APItimeHour={((parseInt(event.dates.start.localTime.slice(0,2)) + 11) % 12 + 1)}
-
                     APItimeHour={event.dates.start.localTime.slice(0,2)}
                     APItimeMinute={(event.dates.start.localTime.slice(3,5))}
 

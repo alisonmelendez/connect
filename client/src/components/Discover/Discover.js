@@ -3,6 +3,7 @@ import DiscoverEvents from '../DiscoverEvents/DiscoverEvents';
 import EventCategories from '../EventCategories/EventCategories';
 import { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
+import './Discover.scss'
 
 // This is the home page 
 
@@ -18,7 +19,7 @@ function Discover({eventName, setEventName,date,setDate,time,setTime,image,setIm
         return (
             <>
                 <Navbar/>
-                <h1>Discover</h1>
+                <h1 id="discoverTitle">Discover</h1>
                 <EventCategories
                     setFilteredCategories={setFilteredCategories}
                     handleCategoryChange={handleCategoryChange}

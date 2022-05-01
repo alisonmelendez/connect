@@ -38,8 +38,6 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     <p id="eventCatGen">{APIcategory} · {APIgenre}</p>
                     <hr id="lineBreak"></hr>
 
-                    {/* <p>{APIdate} {APItime}</p> */}
-
                     <div className="eventdataOne">
                     <img id="calIcon" src="https://img.icons8.com/android/48/000000/calendar.png"/>
                     <p>{formattedMonth}-{finalDate}-{regexYear[0]}</p>
@@ -51,8 +49,6 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     <p>{APIvenue}</p>
                     {/* provides the overall category and the sub category  */}
                     </div>
-                    {/* <p id="eventCatGen">{APIcategory} · {APIgenre}</p> */}
-                    {/* <p>{APIgenre}</p> */}
 
                     <div className="disEventLinks">
                         <a id="ticketLink" href={APIurl} target="_blank" rel="noreferrer noopener"> Ticket Link </a>
