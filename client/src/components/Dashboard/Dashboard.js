@@ -5,6 +5,7 @@ import NewEventModal from '../NewEventModal/NewEventModal';
 import './Dashboard.scss'; 
 import Navbar from '../Navbar/Navbar';
 import ScrollButton from '../ScrollButton/ScrollButton';
+import './Dashboard.scss'
 
 function Dashboard() {
 
@@ -46,30 +47,8 @@ function Dashboard() {
         return (
             <>
                 <Navbar/>
-                <h1> Dashboard </h1>
+                <h1 id="dashTitle"> Dashboard </h1>
 
-                <div className="hugeContainer">
-                {displayEvents.map((event)=> {
-                return <ScheduledEventCard
-                    key={event.id}
-                    eventID={event.id}
-                    name={event.eventName}
-                    date={event.date}
-                    description={event.description}
-                    createdBy={event.createdBy}
-                    image={event.image}
-                    time={event.time}
-                    invitees={event.invitees}
-                    onHandleEventDelete={onHandleEventDelete}
-                    userInfo={userInfo}
-                    setUserInfo={setUserInfo}
-                    />})
-            
-                }
-                </div>
-
-
-                
                 <div className='addNewEvent'>
                     <button onClick={() => setOpenModal(true)} className="addNewEventButton"> Add New Event </button>
 
@@ -95,9 +74,31 @@ function Dashboard() {
                         handleAddNewEvent={handleAddNewEvent}
                     />
 
+                </div>
+
+
+                <div className="hugeContainer">
+                {displayEvents.map((event)=> {
+                return <ScheduledEventCard
+                    key={event.id}
+                    eventID={event.id}
+                    name={event.eventName}
+                    date={event.date}
+                    description={event.description}
+                    createdBy={event.createdBy}
+                    image={event.image}
+                    time={event.time}
+                    invitees={event.invitees}
+                    onHandleEventDelete={onHandleEventDelete}
+                    userInfo={userInfo}
+                    setUserInfo={setUserInfo}
+                    />})
+            
+                }
+                </div>
+
                     <ScrollButton/>
 
-                </div>
             </>
         );
 }

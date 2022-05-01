@@ -54,9 +54,6 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
                     APIurl={event.url}
                     APIimage={event.images[3].url}
                     APIdate={event.dates.start.localDate}
-                    // APItime={event.dates.start.localTime}
-                    // APItimeHour={((parseInt(event.dates.start.localTime.slice(0,2)) + 11) % 12 + 1)}
-
                     APItimeHour={event.dates.start.localTime.slice(0,2)}
                     APItimeMinute={(event.dates.start.localTime.slice(3,5))}
 
