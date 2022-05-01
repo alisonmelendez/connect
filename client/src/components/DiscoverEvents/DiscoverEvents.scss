@@ -10,15 +10,23 @@
     margin: 0px 25px; 
 }
 
+#pageDisplay p span{
+    font-weight: bold;
+}
+
 #pageDisplay button img{
     width: 20px ;
     height: 20px ; 
 }
 
 #pageDisplay button{
-    background-color: #160f2968;
+    background-color: rgb(241, 241, 241); 
     border: none;
+    border: .5px solid black;
+    cursor: pointer;
 }
+
+
 
 
 

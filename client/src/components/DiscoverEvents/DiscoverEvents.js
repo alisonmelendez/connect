@@ -36,17 +36,12 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event 
         }
     });
-
     
-
-    // let fixedString = str.slice(0, str.length - 1);
-    
-
     return (
         <>
             <div id="pageDisplay">
                 <button onClick={movePageBack}><img src="https://img.icons8.com/ios-filled/50/000000/long-arrow-left.png"/></button>
-                <p> Page: {page}</p>
+                <p> <span>{page}</span></p>
                 <button onClick={movePageAhead}><img src="https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png"/></button>
             </div>
 
