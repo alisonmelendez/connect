@@ -11,6 +11,8 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
 
     const apiKey = 'shAfe86LVSVWkdRIRrG3BUq1N13kRA22';
 
+    //
+
     useEffect(() => {
         // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${SECRET_API_KEY}&size=20&page=${page}&dmaId=345`)
         fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${apiKey}&size=20&page=${page}&dmaId=345`)
