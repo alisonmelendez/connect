@@ -7,6 +7,10 @@ import Profile from '../Profile/Profile';
 import { useState } from 'react';
 import Landing from '../Landing/Landing';
 
+console.log(process.env.REACT_APP_API_KEY) 
+
+
+
 function App() {
 
   const [eventName, setEventName] = useState(""); 

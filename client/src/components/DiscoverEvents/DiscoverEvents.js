@@ -4,16 +4,16 @@ import { useEffect } from 'react';
 import DiscoverEventsCard from '../DiscoverEventsCard/DiscoverEventsCard';
 import AddButton from '../ScrollButton/ScrollButton';
 
-
 function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEventName,date,setDate,time,setTime,image,setImage,description,setDescription,createdBy,setcreatedBy}){ 
 
     const [events, setEvents] = useState([]); 
     let [page, setPageNum] = useState(0); 
 
-    let SECRET_API_KEY = 'shAfe86LVSVWkdRIRrG3BUq1N13kRA22'
+    const apiKey = 'shAfe86LVSVWkdRIRrG3BUq1N13kRA22';
 
     useEffect(() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${SECRET_API_KEY}&size=20&page=${page}&dmaId=345`)
+        // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${SECRET_API_KEY}&size=20&page=${page}&dmaId=345`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${apiKey}&size=20&page=${page}&dmaId=345`)
           .then((r) => r.json())
           .then((data) => setEvents(data._embedded.events));
       }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
