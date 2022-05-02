@@ -9,7 +9,7 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     const [events, setEvents] = useState([]); 
     let [page, setPageNum] = useState(0); 
 
-    const apiKey = 'shAfe86LVSVWkdRIRrG3BUq1N13kRA22';
+    const apiKey = '[shAfe86LVSVWkdRIRrG3BUq1N13kRA22]';
 
     //
 
