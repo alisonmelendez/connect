@@ -32,7 +32,7 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
 
             <div className="innerLargeContainer">
                 <div className="eventCategoriesContainer">
-                    <img id="disEventImage" src={APIimage}/> {/* can change the size of the image in DiscoverEvents */}
+                    <img id="disEventImage" src={APIimage}/> 
 
                     <h3 className="eventHeader">{APIname}</h3>
                     <p id="eventCatGen">{APIcategory} · {APIgenre}</p>

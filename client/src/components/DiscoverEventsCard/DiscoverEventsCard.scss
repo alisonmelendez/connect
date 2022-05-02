@@ -6,9 +6,9 @@
 .eventHeader{
     display: flex;
     justify-content: center;
-    margin-bottom: 0px;
-    
+    margin-bottom: 0px;  
 }
+
 #calIcon{
     width: 24px;
     height: 24px;
@@ -51,7 +51,7 @@
 
 #ticketLink{
     text-decoration: none;
-    color: white; 
+    color: rgb(235, 229, 229); 
     border-radius: 5px;
     padding: 2px 20px; 
     background-color: black;
@@ -60,7 +60,7 @@
 
 .plusSign{
     background-color: #246A73;
-    color: white;
+    color: rgb(235, 229, 229);
     margin: 10px 0px;
 
     border-radius: 5px;
@@ -79,10 +79,7 @@
 .eventCategoriesContainer{ 
     width: 34vw; 
 
-    background-color: rgb(225, 225, 225);
-    // background-color: #e8dfd8cb;
-
-    // background-color: #ddc9bacb;
+    background-color: rgba(235, 229, 229);
     margin: 5px 20px;    
 
     border-radius: 5px;
@@ -90,11 +87,6 @@
     filter: drop-shadow(0 0 1rem rgb(96, 95, 95));
 
 }
-
-// .eventCategoriesContainer:hover{
-//     background-color: #ddc9ba;
-//     color: white;
-// }
 
 .disEventLinks{
     display: flex;
@@ -110,7 +102,6 @@
     flex-wrap: wrap;
     align-items: left;
     justify-content: center;
-
 }
 
 .innerLargeContainer{

@@ -29,7 +29,7 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
             <div className="innerLargeContainer">
             <div className="eventCategoriesContainer">
                 <img id="sEventImage" src={image}></img>
-                <h2 id="schEvenName">{name}</h2>
+                <h3 id="schEvenName">{name}</h3>
                 <div className="eventdataOne">
                     <img id="schCalIcon" src="https://img.icons8.com/android/48/000000/calendar.png"/>
                     <p>{date} {time}</p>
