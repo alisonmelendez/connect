@@ -48,7 +48,7 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
 
                 <div className="schEventButtons">
                     <button className="scheduledButtons" onClick={handleEventDelete}> Delete </button>
-                    <button className="scheduledButtons" onClick={() => setIsOpen(true)}> Add Invitees </button>
+                    <button className="scheduledButtons" onClick={() => setIsOpen(true)}> Invite Friends </button>
                 </div>
 
                 <InviteesModal

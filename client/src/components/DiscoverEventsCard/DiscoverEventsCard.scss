@@ -85,7 +85,6 @@
     border-radius: 5px;
     border: solid 0.5px black;
     filter: drop-shadow(0 0 1rem rgb(96, 95, 95));
-
 }
 
 .disEventLinks{
@@ -109,7 +108,16 @@
     margin-bottom: 5%;
     justify-content: space-evenly;
     display: flex;
+
+    transition: transform .2s;
+
 }
+
+.innerLargeContainer:hover{
+    transform: scale(1.05);
+    // transform: scale(1.1);
+}
+
 
 
 
