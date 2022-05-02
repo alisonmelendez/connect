@@ -54,13 +54,13 @@ function Landing() {
     }
         return (
             <>
-                {/* <h1> Connect </h1> */}
-
                 <div className="entireLandingContainer">
                 <div className="landingImage">
                         <h1 id="connectTitle"> Connect </h1>
+                        <p>An app designed to maintain friendships.</p>
                         <img id="familyPhoto" src={image}></img>
                 </div>
+
 
                 <div className="userAccountContainer">
 

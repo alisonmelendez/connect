@@ -10,9 +10,10 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     const [events, setEvents] = useState([]); 
     let [page, setPageNum] = useState(0); 
 
+    let SECRET_API_KEY = 'shAfe86LVSVWkdRIRrG3BUq1N13kRA22'
+
     useEffect(() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
-        // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${SECRET_API_KEY}&size=20&page=${page}&dmaId=345`)
           .then((r) => r.json())
           .then((data) => setEvents(data._embedded.events));
       }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
@@ -36,7 +37,28 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             return filterCategory ? event.classifications[0].segment.name.toLowerCase() === filterCategory.toLowerCase() : event 
         }
     });
+
+    //formatting the date 
     
+    // let yearJSON = JSON.stringify({APIdate});
+    // let regexYear = yearJSON.match(/\d{4}/);
+
+    // let regexDate = yearJSON.match(/-\d{2}-/);
+    // let newDate = regexDate[0].replaceAll('-', '');
+
+    // //use finalDate 
+    // let regexMonth = yearJSON.match(/(-[\d{2}][\d{2}])"/);
+    // let finalDate = regexMonth[1].replaceAll('-', '');
+
+    // //using string properties instead for the month 
+    // let month = yearJSON.slice(17, 19);
+    // let formattedMonth = month.replaceAll('0','')
+    
+
+    // let convertedHour = APItimeHour > 12 ? APItimeHour - 12 : APItimeHour
+    // let convertedMinute = APItimeHour >= 12 ? `${APItimeMinute} PM` : `${APItimeMinute} AM`
+    // let APIconvertedTime = `${convertedHour}:${convertedMinute}`
+
     return (
         <>
             <div id="pageDisplay">

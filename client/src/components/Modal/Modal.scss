@@ -7,7 +7,6 @@
    z-index: 1000;
     background-color: rgba(204, 202, 202, 0.915);
     border-radius: 10px;
-
 }
 
 .overlay{
@@ -28,7 +27,30 @@
     width: 100%;
 }
 
-.entireModal .modalCloseButton{
-    margin: 5px;
+textarea{
+    background: transparent;
+    border-radius: 3px;
+    border: 1px solid black;
 }
 
+input[type=submit] {
+    background: transparent;
+    padding: 1.5px 15px;
+    background-color: rgba(190, 187, 187, 0.561);
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.entireModal input[type=submit] {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 5px;
+}
+
+.entireModal .modalCloseButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}

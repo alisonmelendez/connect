@@ -31,7 +31,7 @@ function InviteesModal({ eventID, open, onClose, userInfo}) {
     }
 
     let names = userInfo ? userInfo.map((user) => 
-    <div className="areaAroundNames">
+    <div>
         <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4 id="inviteUserNames">{user.first_name}</h4>
 
         {/* below also has a last name added */}
@@ -55,7 +55,6 @@ function InviteesModal({ eventID, open, onClose, userInfo}) {
                         {names} 
                     <input type="submit" value="Submit" />
                     </form>
-                    
                     <button className="modalCloseButton" onClick={onClose}> Close </button>
                 </div>
             </div>

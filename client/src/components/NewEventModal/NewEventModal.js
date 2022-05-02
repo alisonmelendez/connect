@@ -99,9 +99,9 @@ function NewEventModal({ handleAddNewEvent, open, onClose, event, setEvent,date,
                             value={createdBy}
                             />
                     <input type="submit" value="Submit" onSubmit={handleEventSubmit}/>
-                    </form>
-                    
                     <button className="modalCloseButton" onClick={onClose}> Close </button>
+
+                    </form>
                 </div>
             </div>
 

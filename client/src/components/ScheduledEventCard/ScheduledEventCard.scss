@@ -12,7 +12,7 @@
 .schEventButtons{
     display: flex;
     justify-content: space-evenly;
-    align-items: center;     
+    align-items: center;    
 }
 
 .eventCard{
@@ -28,6 +28,7 @@
 
 #inviteeNames{
    text-align: center;
+   margin-bottom: 8px;
 }
 
 #guestNames{
@@ -35,13 +36,29 @@
 }
 
 .scheduledButtons{
-    margin-top: 1px;
-    margin-bottom: 5px;
-    margin: 20px 10px;
+    text-decoration: none;
+    color: rgb(235, 229, 229);
+    border-radius: 5px;
+    padding: 2px 20px;
+    border: none; 
+    cursor: pointer;
+    font-size: 16px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;  
+    margin-bottom: 10px;
+ 
 }
 
 .scheduledButtons:first-child{
-    background-color: white;
+    background-color: rgb(205, 2, 2);
+    border: none; 
+    cursor: pointer;
+}
+
+.scheduledButtons:last-child{
+    background-color: #246A73;
 }
 
 #schCalIcon{
