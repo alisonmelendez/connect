@@ -9,13 +9,9 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     const [events, setEvents] = useState([]); 
     let [page, setPageNum] = useState(0); 
 
-    const apiKey = '[shAfe86LVSVWkdRIRrG3BUq1N13kRA22]';
-
-    //
-
     useEffect(() => {
         // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${SECRET_API_KEY}&size=20&page=${page}&dmaId=345`)
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${apiKey}&size=20&page=${page}&dmaId=345`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
           .then((r) => r.json())
           .then((data) => setEvents(data._embedded.events));
       }, [page]); //if the user goes to a new page then new data is fetched (based on the page number)
