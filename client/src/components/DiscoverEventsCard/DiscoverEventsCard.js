@@ -6,9 +6,6 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
 
     const[isOpen, setIsOpen] = useState(false); 
 
-    //might be better to move this to where the date time is coming in 
-    //that way it'll look better on the saved events card 
-
     let yearJSON = JSON.stringify({APIdate});
     let regexYear = yearJSON.match(/\d{4}/);
 
@@ -23,10 +20,11 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
     let month = yearJSON.slice(17, 19);
     let formattedMonth = month.replaceAll('0','')
     
-
     let convertedHour = APItimeHour > 12 ? APItimeHour - 12 : APItimeHour
     let convertedMinute = APItimeHour >= 12 ? `${APItimeMinute} PM` : `${APItimeMinute} AM`
     let APIconvertedTime = `${convertedHour}:${convertedMinute}`
+
+    let formattedDate = `${formattedMonth}/${finalDate}/${regexYear[0]}`;
 
     return (
 
@@ -40,7 +38,7 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
 
                     <div className="eventdataOne">
                     <img id="calIcon" src="https://img.icons8.com/android/48/000000/calendar.png"/>
-                    <p>{formattedMonth}-{finalDate}-{regexYear[0]}</p>
+                    <p>{formattedDate}</p>
                     <p>{APIconvertedTime}</p>
                     </div>
 
@@ -59,7 +57,7 @@ function DiscoverEventsCard({ APIname, APIurl,APIimage,APIdate,APItime,APItimeHo
                     APIname={APIname}
                     APIurl={APIurl}
                     APIimage={APIimage}
-                    APIdate={APIdate}
+                    APIdate={formattedDate}
                     APItime={APIconvertedTime}
                     APIcategory={APIcategory}
                     APIgenre={APIgenre}
