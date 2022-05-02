@@ -7,6 +7,7 @@ import Profile from '../Profile/Profile';
 import { useState } from 'react';
 import Landing from '../Landing/Landing';
 
+
 function App() {
 
   const [eventName, setEventName] = useState(""); 

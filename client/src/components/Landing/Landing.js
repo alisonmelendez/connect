@@ -164,8 +164,9 @@ function Landing() {
                                 defaultValue={createdImage}  
                             >
                             </input>
-                            </div>
                             <input id="signUpButton" type="submit" onSubmit={handleSignup}></input>
+
+                            </div>
                         </form>
                     </div>
                 </div>
