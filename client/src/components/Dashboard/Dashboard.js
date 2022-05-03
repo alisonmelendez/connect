@@ -27,10 +27,8 @@ function Dashboard() {
           .then((r) => r.json())
           .then((data) => setdisplayEvents(data.scheduled_events)); 
       }, []);
-      console.log(displayEvents)
 
     function onHandleEventDelete(removedEvent){
-        const remainingEvents = displayEvents.filter((event) => event.id !== removedEvent)
         setdisplayEvents(displayEvents.filter((event) => event.id !== removedEvent))
     }
 

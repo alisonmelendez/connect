@@ -21,8 +21,9 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
 
     let guestsNames = guests.map(guest => `${guest.first_name} `)
 
-    // let guestTern = APItimeHour > 12 ? APItimeHour - 12 : APItimeHour
-        
+    let guestTern = (guestsNames.length === 0) ?<p style={{color: "#cc0000"}}> Invite Friends! </p> : <p id="guestNames"> {guestsNames} </p>
+
+    console.log(date)
 
     return (
         <>
@@ -42,8 +43,7 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
                 </div>
 
                 <div id="inviteeNames">
-                <p>Invitees: </p>
-                <p id="guestNames"> {guestsNames} </p> 
+                <p>Invitees: {guestTern}</p> 
                 </div>
 
                 <div className="schEventButtons">

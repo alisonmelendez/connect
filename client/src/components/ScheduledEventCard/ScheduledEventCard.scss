@@ -28,7 +28,6 @@
 
 #inviteeNames{
    text-align: center;
-   margin-bottom: 8px;
 }
 
 #guestNames{
@@ -52,9 +51,7 @@
 }
 
 .scheduledButtons:first-child{
-    background-color: rgb(205, 2, 2);
-    border: none; 
-    cursor: pointer;
+    background-color: #cc0000; 
 }
 
 .scheduledButtons:last-child{
