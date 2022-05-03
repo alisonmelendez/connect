@@ -10,7 +10,6 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
     let [page, setPageNum] = useState(0); 
 
     useEffect(() => {
-        // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=${SECRET_API_KEY}&size=20&page=${page}&dmaId=345`)
         fetch(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=422&apikey=shAfe86LVSVWkdRIRrG3BUq1N13kRA22&size=20&page=${page}&dmaId=345`)
           .then((r) => r.json())
           .then((data) => setEvents(data._embedded.events));
