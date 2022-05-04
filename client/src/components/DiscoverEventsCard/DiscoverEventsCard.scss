@@ -51,16 +51,18 @@
 
 #ticketLink{
     text-decoration: none;
-    color: rgb(235, 229, 229); 
+    // color: rgb(235, 229, 229); 
+    color: black; 
     border-radius: 5px;
     padding: 2px 20px; 
-    background-color: black;
+    background-color: transparent;
     cursor: pointer;
+    border: 1.5px solid black; 
 }
 
 .plusSign{
     background-color: #246A73;
-    color: rgb(235, 229, 229);
+    color: rgb(216, 211, 211);
     margin: 10px 0px;
 
     border-radius: 5px;
