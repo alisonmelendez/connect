@@ -51,7 +51,6 @@
 
 #ticketLink{
     text-decoration: none;
-    // color: rgb(235, 229, 229); 
     color: black; 
     border-radius: 5px;
     padding: 2px 20px; 
@@ -79,7 +78,8 @@
 }
 
 .eventCategoriesContainer{ 
-    width: 34vw; 
+    // width: 34vw; 
+    width: 28vw; 
 
     background-color: rgba(235, 229, 229);
     margin: 5px 20px;    
