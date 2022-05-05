@@ -42,7 +42,6 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
                 </div>
 
                 <div id="inviteeNames">
-                {/* <p>Invitees: {guestTern}</p>  */}
                 <p>Invitees: </p> 
                 {guestTern}
                 </div>
