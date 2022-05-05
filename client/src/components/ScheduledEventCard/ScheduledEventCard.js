@@ -23,7 +23,6 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
 
     let guestTern = (guestsNames.length === 0) ?<p style={{color: "#cc0000"}}> Invite Friends! </p> : <p id="guestNames"> {guestsNames} </p>
 
-    console.log(date)
 
     return (
         <>
@@ -43,7 +42,9 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
                 </div>
 
                 <div id="inviteeNames">
-                <p>Invitees: {guestTern}</p> 
+                {/* <p>Invitees: {guestTern}</p>  */}
+                <p>Invitees: </p> 
+                {guestTern}
                 </div>
 
                 <div className="schEventButtons">
@@ -52,6 +53,7 @@ function ScheduledEventCard({ invitees, eventID, name, date, description, create
                 </div>
 
                 <InviteesModal
+                    key={eventID}
                     open={isOpen} 
                     onClose={() => setIsOpen(false)}
                     userInfo={userInfo}

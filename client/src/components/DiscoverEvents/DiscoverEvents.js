@@ -26,6 +26,7 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
             setPageNum(page); 
         }
     }
+
     
     let filterCategories = events.filter(event => {
         if (filterCategory === 'All'){
@@ -35,26 +36,7 @@ function DiscoverEvents({ handleCategoryChange, filterCategory, eventName, setEv
         }
     });
 
-    //formatting the date 
-    
-    // let yearJSON = JSON.stringify({APIdate});
-    // let regexYear = yearJSON.match(/\d{4}/);
 
-    // let regexDate = yearJSON.match(/-\d{2}-/);
-    // let newDate = regexDate[0].replaceAll('-', '');
-
-    // //use finalDate 
-    // let regexMonth = yearJSON.match(/(-[\d{2}][\d{2}])"/);
-    // let finalDate = regexMonth[1].replaceAll('-', '');
-
-    // //using string properties instead for the month 
-    // let month = yearJSON.slice(17, 19);
-    // let formattedMonth = month.replaceAll('0','')
-    
-
-    // let convertedHour = APItimeHour > 12 ? APItimeHour - 12 : APItimeHour
-    // let convertedMinute = APItimeHour >= 12 ? `${APItimeMinute} PM` : `${APItimeMinute} AM`
-    // let APIconvertedTime = `${convertedHour}:${convertedMinute}`
 
     return (
         <>

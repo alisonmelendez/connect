@@ -32,7 +32,7 @@ function InviteesModal({ eventID, open, onClose, userInfo}) {
 
     let names = userInfo ? userInfo.map((user) => 
     <div>
-        <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4 id="inviteUserNames">{user.first_name}</h4>
+        <input onChange={addInviteeToArray} type='checkbox' key={user.id} value={user.id}/><h4 id="inviteUserNames">{user.first_name} </h4>
 
         {/* below also has a last name added */}
         {/* <input onChange={addInviteeToArray} type='checkbox' value={user.id}/><h4 id="inviteUserNames">{user.first_name} {user.last_name}</h4> */}
