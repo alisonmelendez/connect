@@ -2,7 +2,7 @@ class CreateScheduledEvents < ActiveRecord::Migration[6.1]
   def change
     create_table :scheduled_events do |t|
       t.string :eventName
-      t.date :date
+      t.string :date
       t.string :time
       t.string :description
       t.string :image

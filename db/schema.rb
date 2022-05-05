@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_155754) do
 
   create_table "scheduled_events", force: :cascade do |t|
     t.string "eventName"
-    t.date "date"
+    t.string "date"
     t.string "time"
     t.string "description"
     t.string "image"
