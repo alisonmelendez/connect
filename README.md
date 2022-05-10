@@ -1,24 +1,20 @@
-# README
+# connect
+An app designed to maintain friendships. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Project Link:** http://meetandconnect.herokuapp.com/
 
-Things you may want to cover:
+## How It's Made:
 
-* Ruby version
+**Tech used:** HTML, SASS, React, Ruby on Rails, PostgresSQL
 
-* System dependencies
+<!-- ## Optimizations
+*(optional)*
 
-* Configuration
+You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
 
-* Database creation
+## Lessons Learned:
 
-* Database initialization
+No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing. -->
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Credits:
+Developed By: Alison Melendez
