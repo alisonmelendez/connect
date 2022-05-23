@@ -1,7 +1,14 @@
 # connect
+
+<img src="assets/title.png" width="300">
+
 An app designed to maintain friendships. A user can create an account where they can discover neww events to go to, or create and plan a future event to attend with friends. Once an event is created, the user can go to the dashboard and view all of their events. 
 
 **Project Link:** http://meetandconnect.herokuapp.com/
+
+# Demo
+
+<img src="assets/connectApp.gif" width="500">
 
 ## How It's Made:
 
