@@ -12,7 +12,7 @@ An app designed to maintain friendships. A user can create an account where they
 
 ## How It's Made:
 
-**Tech used:** HTML, SASS, React, Ruby on Rails, PostgresSQL
+**Tech used:** HTML, SCSS, React, Ruby on Rails, PostgresSQL
 
 <!-- ## Optimizations
 *(optional)*
